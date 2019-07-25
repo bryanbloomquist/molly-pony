@@ -1,14 +1,37 @@
-.App {
-  text-align: center;
+body {
+  background-image: url("./images/PonyvilleBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Scoreboard Component */
+
+.scoreboard {
+  background-color: #ffc0cb99;
+  border: solid 5px lavender;
+  width: calc( 100% - 30px );
+  padding: 5px 10px;
+  float: left;
+  font-size: 1.5em;
+}
+
+.heading {
+  float: left;
+  width: calc( 75% - 10px );
+  padding: 5px;
+}
+
+.data {
+  float: left;
+  width: calc( 25% - 10px );
+  padding: 5px;
+  text-align: right;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 576px) {
+  .scoreboard {
+    width: calc( 33% - 30px );
+  }
 }

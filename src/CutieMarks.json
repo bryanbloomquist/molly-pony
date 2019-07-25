@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Applejack Cutie Mark",
+    "image": "images/ApplejackCutieMark.png"
+  },
+  {
+    "id": 2,
+    "name": "Fluttershy Cutie Mark",
+    "image": "images/FluttershyCutieMark.png"
+  },
+  {
+    "id": 3,
+    "name": "Pinkie Pie Cutie Mark",
+    "image": "images/PinkiePieCutieMark.png"
+  },
+  {
+    "id": 4,
+    "name": "Rainbow Dash Cutie Mark",
+    "image": "images/RainbowDashCutieMark.png"
+  },
+  {
+    "id": 5,
+    "name": "Rarity Cutie Mark",
+    "image": "images/RarityCutieMark.png"
+  },
+  {
+    "id": 6,
+    "name": "Twilight Sparkle Cutie Mark",
+    "image": "images/TwilightSparkleCutieMark.png"
+  }
+]
