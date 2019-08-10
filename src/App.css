@@ -4,14 +4,23 @@ body {
   background-size: cover;
 }
 
+/* Billboard Component */
+
+.billboardText {
+  padding: 5px;
+  width: calc( 100% - 10px );
+}
+
 /* Scoreboard Component */
 
 .scoreboard {
   background-color: #ffc0cb99;
   border: solid 5px lavender;
   width: calc( 100% - 30px );
+  min-height: 81px;
   padding: 5px 10px;
   float: left;
+  clear: left;
   font-size: 1.5em;
 }
 
@@ -47,6 +56,34 @@ body {
   width: 100%;
 }
 
+/* PonyArea Components */
+
+.ponyArea {
+  width: calc ( 100% - 30px );
+  padding: 5px 10px;
+  float: right;
+}
+
+.ponyContainer {
+  width: calc( 50% - 36px );
+  margin: 15px;
+  float: left;
+}
+
+.hidden {
+  opacity: .1;
+}
+
+.found {
+  opacity: 1;
+} 
+
+.myLittlePony {
+  border-radius: 10%;
+  border: solid 3px gold;
+  width: 100%;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 576px) {
@@ -55,5 +92,19 @@ body {
   }
   .gameArea {
     width: calc( 33% - 30px );
+  }
+  .ponyArea {
+    position: fixed;
+    right: 0;
+    width: calc( 67% - 30px );
+  }
+  .ponyContainer {
+    width: calc( 33% - 36px );
+  }  
+}
+
+@media screen and ( min-width: 768px ) {
+  .ponyContainer {
+    width: calc( 25% - 36px );
   }
 }
