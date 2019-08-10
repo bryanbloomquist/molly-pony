@@ -28,10 +28,32 @@ body {
   text-align: right;
 }
 
+/* GameArea Components */
+
+.gameArea {
+  width: calc( 100% - 30px );
+  padding: 5px 10px;
+}
+
+.imgContainer {
+  width: calc( 50% - 36px );
+  margin: 15px;
+  float: left;
+}
+
+.cutieMark {
+  border-radius: 25%;
+  border: solid 3px magenta;
+  width: 100%;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 576px) {
   .scoreboard {
+    width: calc( 33% - 30px );
+  }
+  .gameArea {
     width: calc( 33% - 30px );
   }
 }
