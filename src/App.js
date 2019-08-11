@@ -23,7 +23,7 @@ class App extends Component {
     display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
   }
 
-  // function to shuffle array, I know, pretty self explanatory
+  // function to shuffle array
   shuffleArray = ( array ) => {
     let currentIndex = array.length, tempVal, randomIndex;
     while ( 0 !== currentIndex ) {
