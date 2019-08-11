@@ -3,12 +3,12 @@ import "../../App.css";
 
 const MyLittlePony = ( props ) => {
   return (
-    <div className = "ponyContainer hidden">
+    <div className = "ponyContainer">
       <img
         alt = { props.name }
         src = { props.image }
         unlocked = { props.unlocked }
-        className = "myLittlePony"
+        className = { props.unlocked ? "myLittlePony found" : "myLittlePony hidden" }
       />
     </div>
   )

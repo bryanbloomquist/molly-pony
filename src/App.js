@@ -17,6 +17,7 @@ class App extends Component {
     playerLosses: 0,
     targetScore: 0,
     playerScore: 0,
+    totalClicks: 0,
     cutieMarks: CutieMarksJSON,
     myLittlePonies: MyLittlePoniesJSON,
     display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
@@ -39,7 +40,7 @@ class App extends Component {
 // generate random number between 18 and 36 for the Target Score
 
   generateTargetScore = () => {
-    let x = Math.floor(( Math.random() * 17 ) + 18 );
+    let x = Math.floor(( Math.random() * 29 ) + 6 );
     this.setState({ targetScore: x})
   }
 
@@ -51,22 +52,30 @@ class App extends Component {
     this.shuffleArray( this.state.myLittlePonies );
   }
 
+// of the player gets to select a pony
+
+  selectAPony = ( x ) => {
+    // let x = (( this.state.playerWins + 1 ) / 5 ) - 1;
+    let mlpCopy = JSON.parse( JSON.stringify( this.state.myLittlePonies ))
+    mlpCopy[ x ].unlocked = 1
+    this.setState({ myLittlePonies: mlpCopy })
+  }
+
 // if Player Score = Target Score
 
   roundWon = () => {
     let text;
     let wins = this.state.playerWins;
     wins++;
-    console.log( wins );
     if ( wins % 5 === 0 ) {
-      // let found = wins/5;
-      // myLittlePonies[ found ].unlocked = true;
-      text = "Good job! You found a pony!"
+      let x = (( this.state.playerWins + 1 ) / 5 ) - 1;
+      text = "Good job! You found " + this.state.myLittlePonies[ x ].name + "!";
+      this.selectAPony( x );
     } else if ( wins < 5 ) {
       let remainder = 5 - wins;
       text = "Good job, match " + remainder + " more to find a pony!"
     } else if ( wins > 5 && wins % 5 !== 0 ) {
-      text = "Good job, match " + wins%5 + " more to find another pony!"
+      text = "Good job, match " + ( 5 - ( wins%5 )) + " more to find another pony!"
     }
     this.setState({
       playerWins: wins,
@@ -97,7 +106,10 @@ class App extends Component {
     let pointValue = id;
     let currentScore = this.state.playerScore;
     let target = this.state.targetScore;
+    let clicks = this.state.totalClicks;
     currentScore += pointValue;
+    clicks++;
+    this.setState({ totalClicks: clicks })
     if ( currentScore > target ) {
       this.roundLost();
     } else if ( currentScore === target ) {
@@ -117,6 +129,7 @@ class App extends Component {
           { this.state.cutieMarks.slice( 0, 4 ).map(( cutieMark ) => (
             <CutieMark
               clickMark = { this.clickMark }
+              key = { cutieMark.id }
               id = { cutieMark.id }
               name = { cutieMark.name }
               image = { cutieMark.image }
@@ -124,14 +137,16 @@ class App extends Component {
           ))}
         </GameArea>
         <Scoreboard 
-          playerWins = { this.state.playerWins }
-          playerLosses = { this.state.playerLosses }
           targetScore = { this.state.targetScore }
           playerScore = { this.state.playerScore }
+          playerWins = { this.state.playerWins }
+          playerLosses = { this.state.playerLosses }
+          totalClicks = { this.state.totalClicks }
         />
         <PonyArea>
           { this.state.myLittlePonies.map(( myLittlePony ) => (
             <MyLittlePony
+              key = { myLittlePony.id }
               name = { myLittlePony.name }
               image = { myLittlePony.image }
               unlocked = { myLittlePony.unlocked }

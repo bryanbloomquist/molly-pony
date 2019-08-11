@@ -71,12 +71,18 @@ body {
 }
 
 .hidden {
-  opacity: .1;
+  filter: grayscale( 100% );
+  opacity: 0.1;
 }
 
 .found {
+  filter: grayscale( 0% );
   opacity: 1;
 } 
+
+.selectable {
+  border-radius: 10%;
+}
 
 .myLittlePony {
   border-radius: 10%;
@@ -86,7 +92,7 @@ body {
 
 /* Media Queries */
 
-@media screen and (min-width: 576px) {
+@media screen and ( min-width: 576px ) {
   .scoreboard {
     width: calc( 33% - 30px );
   }

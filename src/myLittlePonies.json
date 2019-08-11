@@ -3,72 +3,72 @@
     "id": 1,
     "name": "Apple Bloom",
     "image": "images/AppleBloom.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 2,
     "name": "Applejack",
     "image": "images/Applejack.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 3,
     "name": "Fluttershy",
     "image": "images/Fluttershy.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 4,
     "name": "Pinkie Pie",
     "image": "images/PinkiePie.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 5,
     "name": "Princess Celestia",
     "image": "images/PrincessCelestia.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 6,
     "name": "Princess Luna",
     "image": "images/PrincessLuna.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 7,
     "name": "Rainbow Dash",
     "image": "images/RainbowDash.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 8,
     "name": "Rarity",
     "image": "images/Rarity.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 9,
     "name": "Scootaloo",
     "image": "images/Scootaloo.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 10,
     "name": "Spike",
     "image": "images/Spike.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 11,
     "name": "SweetieBelle",
     "image": "images/SweetieBelle.jpg",
-    "unlocked": false
+    "unlocked": 0
   },
   {
     "id": 12,
     "name": "Twilight Sparkle",
     "image": "images/TwilightSparkle.jpg",
-    "unlocked": false
+    "unlocked": 0
   }
 ]
