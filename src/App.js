@@ -23,8 +23,7 @@ class App extends Component {
     display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
   }
 
-// function to shuffle array, I know, pretty self explanatory
-
+  // function to shuffle array, I know, pretty self explanatory
   shuffleArray = ( array ) => {
     let currentIndex = array.length, tempVal, randomIndex;
     while ( 0 !== currentIndex ) {
@@ -37,37 +36,34 @@ class App extends Component {
     return array;
   }
 
-// generate random number between 18 and 36 for the Target Score
-
+  // generate random number between 18 and 36 for the Target Score
   generateTargetScore = () => {
     let x = Math.floor(( Math.random() * 29 ) + 6 );
     this.setState({ targetScore: x})
   }
 
-// run generateTargetScore after the screen has loaded
-
+  // run generateTargetScore after the screen has loaded
   componentDidMount() {
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
     this.shuffleArray( this.state.myLittlePonies );
   }
 
-// of the player gets to select a pony
-
+  // reveals a pony after every fifth win
   selectAPony = ( x ) => {
-    // let x = (( this.state.playerWins + 1 ) / 5 ) - 1;
     let mlpCopy = JSON.parse( JSON.stringify( this.state.myLittlePonies ))
     mlpCopy[ x ].unlocked = 1
     this.setState({ myLittlePonies: mlpCopy })
   }
 
-// if Player Score = Target Score
-
+  // if Player Score = Target Score
   roundWon = () => {
     let text;
     let wins = this.state.playerWins;
     wins++;
-    if ( wins % 5 === 0 ) {
+    if ( wins === 60 ) {
+      text = "Amazing job! You found all the My Little Ponies! It only took you " + this.state.totalClicks + "clicks, that is awesome!";
+    } else if ( wins % 5 === 0 ) {
       let x = (( this.state.playerWins + 1 ) / 5 ) - 1;
       text = "Good job! You found " + this.state.myLittlePonies[ x ].name + "!";
       this.selectAPony( x );
@@ -86,8 +82,7 @@ class App extends Component {
     this.shuffleArray( this.state.cutieMarks );
   }
 
-// if Player Score > Target Score
-
+  // if Player Score > Target Score
   roundLost = () => {
     let losses = this.state.playerLosses;
     losses++;
@@ -100,8 +95,7 @@ class App extends Component {
     this.shuffleArray( this.state.cutieMarks );
   }
 
-// add value when button is clicked
-
+  // add value when button is clicked
   clickMark = ( id ) => {
     let pointValue = id;
     let currentScore = this.state.playerScore;
@@ -155,7 +149,6 @@ class App extends Component {
         </PonyArea>
       </Container>
     );
-
   }
 
 }

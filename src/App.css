@@ -2,6 +2,8 @@ body {
   background-image: url("./images/PonyvilleBackground.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center bottom;
 }
 
 /* Billboard Component */
@@ -21,7 +23,7 @@ body {
   padding: 5px 10px;
   float: left;
   clear: left;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .heading {
@@ -99,6 +101,10 @@ body {
   .gameArea {
     width: calc( 33% - 30px );
   }
+  .imgContainer {
+    width: calc( 50% - 16px );
+    margin: 5px;
+  }
   .ponyArea {
     position: fixed;
     right: 0;
@@ -110,6 +116,13 @@ body {
 }
 
 @media screen and ( min-width: 768px ) {
+  .scoreboard {
+    font-size: 1.5em;
+  }
+  .imgContainer {
+    width: calc( 50% - 36px );
+    margin: 15px;
+  }
   .ponyContainer {
     width: calc( 25% - 36px );
   }
