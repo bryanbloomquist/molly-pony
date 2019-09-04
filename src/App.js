@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from "react-bootstrap";
 import CutieMarksJSON from "./CutieMarks.json";
-import MyLittlePoniesEasyJSON from "./MyLittlePoniesEasy.json";
-import MyLittlePoniesNormalJSON from "./MyLittlePoniesNormal.json";
-import MyLittlePoniesHardJSON from "./MyLittlePoniesHard.json";
+import MyLittlePoniesEasyJSON from "./myLittlePoniesEasy.json";
+import MyLittlePoniesNormalJSON from "./myLittlePoniesNormal.json";
+import MyLittlePoniesHardJSON from "./myLittlePoniesHard.json";
 import Scoreboard from "./Components/Scoreboard";
 import Billboard from "./Components/Billboard";
 import GameArea from "./Components/GameArea/GameArea";
@@ -50,14 +50,14 @@ class App extends Component {
   componentDidMount() {
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
-    this.shuffleArray( this.state.myLittlePonies );
+    this.shuffleArray( this.state.myLittlePoniesEasy );
   }
 
   // reveals a pony after every fifth win
   selectAPony = ( x ) => {
-    let mlpCopy = JSON.parse( JSON.stringify( this.state.myLittlePonies ))
+    let mlpCopy = JSON.parse( JSON.stringify( this.state.myLittlePoniesEasy ))
     mlpCopy[ x ].unlocked = 1
-    this.setState({ myLittlePonies: mlpCopy })
+    this.setState({ myLittlePoniesEasy: mlpCopy })
   }
 
   // if Player Score = Target Score
@@ -65,17 +65,15 @@ class App extends Component {
     let text;
     let wins = this.state.playerWins;
     wins++;
-    if ( wins === 60 ) {
-      text = "Amazing job! You found all the My Little Ponies! It only took you " + this.state.totalClicks + "clicks, that is awesome!";
-    } else if ( wins % 5 === 0 ) {
-      let x = (( this.state.playerWins + 1 ) / 5 ) - 1;
-      text = "Good job! You found " + this.state.myLittlePonies[ x ].name + "!";
+    console.log( wins );
+    if ( wins === 12 ) {
+      text = "Amazing job! You found all the My Little Ponies! It only took you " + this.state.totalClicks + " clicks, that is awesome!";
+    } else if ( wins < 12 ) {
+      let x = this.state.playerWins;
+      text = "Good job! You found " + this.state.myLittlePoniesEasy[ x ].name + "!";
       this.selectAPony( x );
-    } else if ( wins < 5 ) {
-      let remainder = 5 - wins;
-      text = "Good job, match " + remainder + " more to find a pony!"
-    } else if ( wins > 5 && wins % 5 !== 0 ) {
-      text = "Good job, match " + ( 5 - ( wins%5 )) + " more to find another pony!"
+    } else if ( wins > 12 ) {
+      text = "You have found all of the My Little Ponies, click HERE to play again."
     }
     this.setState({
       playerWins: wins,
@@ -142,7 +140,7 @@ class App extends Component {
           totalClicks = { this.state.totalClicks }
         />
         <PonyArea>
-          { this.state.myLittlePonies.map(( myLittlePony ) => (
+          { this.state.myLittlePoniesEasy.map(( myLittlePony ) => (
             <MyLittlePony
               key = { myLittlePony.id }
               name = { myLittlePony.name }
