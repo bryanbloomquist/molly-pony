@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from "react-bootstrap";
 import CutieMarksJSON from "./CutieMarks.json";
-import MyLittlePoniesJSON from "./MyLittlePonies.json";
+import MyLittlePoniesEasyJSON from "./MyLittlePoniesEasy.json";
+import MyLittlePoniesNormalJSON from "./MyLittlePoniesNormal.json";
+import MyLittlePoniesHardJSON from "./MyLittlePoniesHard.json";
 import Scoreboard from "./Components/Scoreboard";
 import Billboard from "./Components/Billboard";
 import GameArea from "./Components/GameArea/GameArea";
@@ -19,7 +21,9 @@ class App extends Component {
     playerScore: 0,
     totalClicks: 0,
     cutieMarks: CutieMarksJSON,
-    myLittlePonies: MyLittlePoniesJSON,
+    myLittlePoniesEasy: MyLittlePoniesEasyJSON,
+    myLittlePoniesNormal: MyLittlePoniesNormalJSON,
+    myLittlePoniesHard: MyLittlePoniesHardJSON,
     display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
   }
 
