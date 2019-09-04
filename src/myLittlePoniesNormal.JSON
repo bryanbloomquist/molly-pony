@@ -1,0 +1,74 @@
+[
+  {
+    "id": 13,
+    "name": "Big Mac",
+    "image": "images/BigMac.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 14,
+    "name": "Capper",
+    "image": "images/Capper.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 15,
+    "name": "Captain Celaeno",
+    "image": "images/CaptainCelaeno.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 16,
+    "name": "Fizzlebop Berrytwist",
+    "image": "images/FizzlebopBerrytwist.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 17,
+    "name": "Maud Pie",
+    "image": "images/MaudPie.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 18,
+    "name": "Princess Cadance",
+    "image": "images/PrincessCadance.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 19,
+    "name": "Princess Skystar",
+    "image": "images/PrincessSkystar.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 20,
+    "name": "Queen Chrysalis",
+    "image": "images/QueenChrysalis.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 21,
+    "name": "Queen Novo",
+    "image": "images/QueenNovo.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 22,
+    "name": "Shining Armor",
+    "image": "images/ShiningArmor.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 23,
+    "name": "Songbird Serenade",
+    "image": "images/SongbirdSerenade.jpg",
+    "unlocked": 0
+  },
+  {
+    "id": 24,
+    "name": "Sunset Shimmer",
+    "image": "images/SunsetShimmer.jpg",
+    "unlocked": 0
+  }
+]
