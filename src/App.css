@@ -24,6 +24,7 @@ body {
   float: left;
   clear: left;
   font-size: 1.2em;
+  margin-bottom: 15px;
 }
 
 .heading {
@@ -37,6 +38,23 @@ body {
   width: calc( 25% - 10px );
   padding: 5px;
   text-align: right;
+}
+
+/* LoginArea Components */
+
+.loginArea {
+  background-color: #e6e6fa99;
+  border: solid 5px violet;
+  text-align: center;
+}
+
+.loginButton {
+  background-color: pink;
+  border: solid 2px violet;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  border-radius: 50%;
 }
 
 /* GameArea Components */
@@ -105,6 +123,9 @@ body {
     width: calc( 50% - 16px );
     margin: 5px;
   }
+  .loginArea {
+    width: calc( 33% - 30px );
+  }
   .ponyArea {
     position: fixed;
     right: 0;
@@ -116,9 +137,9 @@ body {
 }
 
 @media screen and ( min-width: 768px ) {
-  .scoreboard {
+  /* .scoreboard {
     font-size: 1.5em;
-  }
+  } */
   .imgContainer {
     width: calc( 50% - 36px );
     margin: 15px;
