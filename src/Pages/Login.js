@@ -15,7 +15,7 @@ class Login extends Component {
       <div className = "loginArea scoreboard">
         <form>
           <p>Welcome to Ponyville.</p>
-          <p>Can you rescue all of the missing My Little Ponies?</p>
+          <p>Can you rescue the missing My Little Ponies and all their friends?</p>
           <p>Select Difficulty:</p>
           <Link to = "/easy">
             <button className = "loginButton">Easy</button>            

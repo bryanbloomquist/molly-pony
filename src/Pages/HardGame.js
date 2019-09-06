@@ -22,7 +22,7 @@ class easyGame extends Component {
     totalClicks: 0,
     cutieMarks: CutieMarksJSON,
     myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON, MyLittlePoniesHardJSON ),
-    display: "Please enter your name and select a difficulty to begin..."
+    display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
   }
 
   // function to shuffle array
