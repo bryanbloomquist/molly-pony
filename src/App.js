@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import EasyGame from "./Components/EasyGame";
-import NormalGame from "./Components/NormalGame";
-import HardGame from "./Components/HardGame";
-import Login from "./Components/Login";
+import EasyGame from "./Pages/EasyGame";
+import NormalGame from "./Pages/NormalGame";
+import HardGame from "./Pages/HardGame";
+import Login from "./Pages/Login";
 
 function App() {
   return (

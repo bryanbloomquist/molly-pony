@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Container } from "react-bootstrap";
-import CutieMarksJSON from "../CutieMarks.json";
-import MyLittlePoniesEasyJSON from "../myLittlePoniesEasy.json";
-import MyLittlePoniesNormalJSON from "../myLittlePoniesNormal.json";
-import CutieMark from "./GameArea/CutieMark.js";
-import GameArea from "./GameArea/GameArea";
-import MyLittlePony from "./PonyArea/MyLittlePony";
-import PonyArea from "./PonyArea/PonyArea";
-import Billboard from "./Billboard";
-import Scoreboard from "./Scoreboard";
+import CutieMarksJSON from "../JSON/CutieMarks.json";
+import MyLittlePoniesEasyJSON from "../JSON/myLittlePoniesEasy.json";
+import MyLittlePoniesNormalJSON from "../JSON/myLittlePoniesNormal.json";
+import CutieMark from "../Components/GameArea/CutieMark.js";
+import GameArea from "../Components/GameArea/GameArea";
+import MyLittlePony from "../Components/PonyArea/MyLittlePony";
+import PonyArea from "../Components/PonyArea/PonyArea";
+import Billboard from "../Components/Billboard";
+import Scoreboard from "../Components/Scoreboard";
 import '../App.css';
 
 class easyGame extends Component {

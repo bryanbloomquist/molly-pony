@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Container } from "react-bootstrap";
-import CutieMarksJSON from "../CutieMarks.json";
-import MyLittlePoniesEasyJSON from "../myLittlePoniesEasy.json";
-import CutieMark from "./GameArea/CutieMark.js";
-import GameArea from "./GameArea/GameArea";
-import MyLittlePony from "./PonyArea/MyLittlePony";
-import PonyArea from "./PonyArea/PonyArea";
-import Billboard from "./Billboard";
-import Scoreboard from "./Scoreboard";
+import CutieMarksJSON from "../JSON/CutieMarks.json";
+import MyLittlePoniesEasyJSON from "../JSON/myLittlePoniesEasy.json";
+import MyLittlePoniesNormalJSON from "../JSON/myLittlePoniesNormal.json";
+import MyLittlePoniesHardJSON from "../JSON/myLittlePoniesHard.json";
+import CutieMark from "../Components/GameArea/CutieMark.js";
+import GameArea from "../Components/GameArea/GameArea";
+import MyLittlePony from "../Components/PonyArea/MyLittlePony";
+import PonyArea from "../Components/PonyArea/PonyArea";
+import Billboard from "../Components/Billboard";
+import Scoreboard from "../Components/Scoreboard";
 import '../App.css';
 
 class easyGame extends Component {
@@ -19,7 +21,7 @@ class easyGame extends Component {
     playerScore: 0,
     totalClicks: 0,
     cutieMarks: CutieMarksJSON,
-    myLittlePonies: MyLittlePoniesEasyJSON,
+    myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON, MyLittlePoniesHardJSON ),
     display: "Please enter your name and select a difficulty to begin..."
   }
 
@@ -63,9 +65,9 @@ class easyGame extends Component {
     let wins = this.state.playerWins;
     wins++;
     console.log( wins );
-    if ( wins === 12 ) {
+    if ( wins === 60 ) {
       text = "Amazing job! You found all the My Little Ponies! It only took you " + this.state.totalClicks + " clicks, that is awesome!";
-    } else if ( wins < 12 ) {
+    } else if ( wins < 60 ) {
       let x = this.state.playerWins;
       text = "Good job! You found " + this.state.myLittlePonies[ x ].name + "!";
       this.selectAPony( x );
