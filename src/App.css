@@ -6,6 +6,27 @@ body {
   background-position: center bottom;
 }
 
+/* LoginArea Components */
+
+.loginArea {
+  background-color: #e6e6fa99;
+  border: solid 5px violet;
+  text-align: center;
+  position: fixed;
+  left: 33%;
+  top: 33%;
+}
+
+.loginButton {
+  background-color: pink;
+  border: solid 2px violet;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  border-radius: 50%;
+}
+
+
 /* Billboard Component */
 
 .billboardText {
@@ -38,23 +59,6 @@ body {
   width: calc( 25% - 10px );
   padding: 5px;
   text-align: right;
-}
-
-/* LoginArea Components */
-
-.loginArea {
-  background-color: #e6e6fa99;
-  border: solid 5px violet;
-  text-align: center;
-}
-
-.loginButton {
-  background-color: pink;
-  border: solid 2px violet;
-  margin: 5px;
-  padding: 5px 10px;
-  font-size: 0.8em;
-  border-radius: 50%;
 }
 
 /* GameArea Components */

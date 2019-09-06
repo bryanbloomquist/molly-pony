@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Container } from "react-bootstrap";
-import CutieMarksJSON from "./CutieMarks.json";
-import MyLittlePoniesEasyJSON from "./myLittlePoniesEasy.json";
-import Scoreboard from "./Components/Scoreboard";
-import Billboard from "./Components/Billboard";
-import GameArea from "./Components/GameArea/GameArea";
-import CutieMark from "./Components/GameArea/CutieMark.js";
-import PonyArea from "./Components/PonyArea/PonyArea";
-import MyLittlePony from "./Components/PonyArea/MyLittlePony";
-import './App.css';
+import CutieMarksJSON from "../CutieMarks.json";
+import MyLittlePoniesEasyJSON from "../myLittlePoniesEasy.json";
+import CutieMark from "./GameArea/CutieMark.js";
+import GameArea from "./GameArea/GameArea";
+import MyLittlePony from "./PonyArea/MyLittlePony";
+import PonyArea from "./PonyArea/PonyArea";
+import Billboard from "./Billboard";
+import Scoreboard from "./Scoreboard";
+import '../App.css';
 
-class App extends Component {
+class easyGame extends Component {
 
   state = {
     playerWins: 0,
@@ -20,7 +20,7 @@ class App extends Component {
     totalClicks: 0,
     cutieMarks: CutieMarksJSON,
     myLittlePonies: MyLittlePoniesEasyJSON,
-    display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
+    display: "Please enter your name and select a difficulty to begin..."
   }
 
   // function to shuffle array
@@ -44,6 +44,7 @@ class App extends Component {
 
   // run generateTargetScore after the screen has loaded
   componentDidMount() {
+    console.log( this.state.difficulty );
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
     this.shuffleArray( this.state.myLittlePonies );
@@ -149,4 +150,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default easyGame;
