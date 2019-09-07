@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/molly-pony/precache-manifest.220aa5328f77ba46dc9b982f1144bcbb.js"
+  "/molly-pony/precache-manifest.4bee0fd5e68c239000f864397cd31d4c.js"
 );
 
 self.addEventListener('message', (event) => {
