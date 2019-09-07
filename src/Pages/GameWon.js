@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class Login extends Component {
+class GameWon extends Component {
   render() {
     return (
-      <div className = "loginArea">
+      <div className = "loginArea scoreboard">
         <form>
-          <p>Welcome to Ponyville.</p>
-          <p>Can you rescue the missing My Little Ponies and all their friends?</p>
-          <p>Select Difficulty:</p>
+          <p>Great Job!</p>
+          <p>You found all the missing ponies and their friends!</p>
+          <p>Why don't you play again at a different difficulty?</p>
           <Link to = "/easy">
             <button className = "loginButton">Easy</button>            
           </Link>
@@ -22,6 +22,6 @@ class Login extends Component {
       </div>
     );
   }
-}
 
-export default Login;
+}
+export default GameWon;

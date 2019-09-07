@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class Login extends Component {
+class GameLost extends Component {
   render() {
     return (
-      <div className = "loginArea">
+      <div className = "loginArea scoreboard">
         <form>
-          <p>Welcome to Ponyville.</p>
-          <p>Can you rescue the missing My Little Ponies and all their friends?</p>
+          <p>Nice try!</p>
+          <p>You did your best!</p>
+          <p>Why don't you play again?</p>
           <p>Select Difficulty:</p>
           <Link to = "/easy">
             <button className = "loginButton">Easy</button>            
@@ -24,4 +25,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default GameLost;

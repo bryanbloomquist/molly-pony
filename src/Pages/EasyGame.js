@@ -6,6 +6,7 @@ import CutieMark from "../Components/GameArea/CutieMark.js";
 import GameArea from "../Components/GameArea/GameArea";
 import MyLittlePony from "../Components/PonyArea/MyLittlePony";
 import PonyArea from "../Components/PonyArea/PonyArea";
+import BackButton from "../Components/BackButton";
 import Billboard from "../Components/Billboard";
 import Scoreboard from "../Components/Scoreboard";
 import '../App.css';
@@ -23,7 +24,7 @@ class easyGame extends Component {
     display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
   }
 
-  // function to shuffle array
+  //function to shuffle array
   shuffleArray = ( array ) => {
     let currentIndex = array.length, tempVal, randomIndex;
     while ( 0 !== currentIndex ) {
@@ -36,34 +37,34 @@ class easyGame extends Component {
     return array;
   }
 
-  // generate random number between 18 and 36 for the Target Score
+  //generate random number between 18 and 36 for the Target Score
   generateTargetScore = () => {
     let x = Math.floor(( Math.random() * 29 ) + 6 );
     this.setState({ targetScore: x})
   }
 
-  // run generateTargetScore after the screen has loaded
+  //run generateTargetScore after the screen has loaded
   componentDidMount() {
-    console.log( this.state.difficulty );
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
     this.shuffleArray( this.state.myLittlePonies );
   }
 
-  // reveals a pony after every fifth win
+  //reveals a pony after every fifth win
   selectAPony = ( x ) => {
     let mlpCopy = JSON.parse( JSON.stringify( this.state.myLittlePonies ))
     mlpCopy[ x ].unlocked = 1
     this.setState({ myLittlePonies: mlpCopy })
   }
 
-  // if Player Score = Target Score
+  //if Player Score = Target Score
   roundWon = () => {
     let text;
     let wins = this.state.playerWins;
     wins++;
-    console.log( wins );
     if ( wins === 12 ) {
+      let x = this.state.playerWins;
+      this.selectAPony( x );
       text = "Amazing job! You found all the My Little Ponies! It only took you " + this.state.totalClicks + " clicks, that is awesome!";
     } else if ( wins < 12 ) {
       let x = this.state.playerWins;
@@ -79,36 +80,42 @@ class easyGame extends Component {
     this.shuffleArray( this.state.cutieMarks );
   }
 
-  // if Player Score > Target Score
+  //if Player Score > Target Score
   roundLost = () => {
     let losses = this.state.playerLosses;
     losses++;
     this.setState({
       playerLosses: losses,
       playerScore: 0,
-      display: "That's okay. You can do it. Try again."
+      display: "That's okay. You can do it. Try Again."
     });
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
   }
 
-  // add value when button is clicked
+  //add value when button is clicked
   clickMark = ( id ) => {
-    let pointValue = id;
-    let currentScore = this.state.playerScore;
-    let target = this.state.targetScore;
-    let clicks = this.state.totalClicks;
-    currentScore += pointValue;
-    clicks++;
-    this.setState({ totalClicks: clicks })
-    if ( currentScore > target ) {
-      this.roundLost();
-    } else if ( currentScore === target ) {
-      this.roundWon();
+    if ( this.state.playerWins < 12 ) {
+      let pointValue = id;
+      let currentScore = this.state.playerScore;
+      let target = this.state.targetScore;
+      let clicks = this.state.totalClicks;
+      currentScore += pointValue;
+      clicks++;
+      this.setState({ totalClicks: clicks })
+      if ( currentScore > target ) {
+        this.roundLost();
+      } else if ( currentScore === target ) {
+        this.roundWon();
+      } else {
+        this.setState({ playerScore: currentScore })
+      }
     } else {
-      this.setState({ playerScore: currentScore })
+      this.props.history.push( "/gamewon" );
     }
   }
+
+  backButton = () => this.props.history.push( "/" );
 
   render() {
     return (
@@ -133,6 +140,9 @@ class easyGame extends Component {
           playerWins = { this.state.playerWins }
           playerLosses = { this.state.playerLosses }
           totalClicks = { this.state.totalClicks }
+        />
+        <BackButton 
+          backButton = { this.backButton }
         />
         <PonyArea>
           { this.state.myLittlePonies.map(( myLittlePony ) => (
