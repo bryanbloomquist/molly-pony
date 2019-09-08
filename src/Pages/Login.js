@@ -6,7 +6,7 @@ class Login extends Component {
     return (
       <div className = "loginArea">
         <form>
-          <p>Welcome to Ponyville.</p>
+          <h1>Welcome to Ponyville.</h1>
           <p>Can you rescue the missing My Little Ponies and all their friends?</p>
           <p>Select Difficulty:</p>
           <Link to = "/easy">

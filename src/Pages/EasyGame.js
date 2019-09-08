@@ -37,9 +37,9 @@ class easyGame extends Component {
     return array;
   }
 
-  //generate random number between 18 and 36 for the Target Score
+  //generate random number between 6 and 36 for the Target Score
   generateTargetScore = () => {
-    let x = Math.floor(( Math.random() * 29 ) + 6 );
+    let x = Math.floor(( Math.random() * 31 ) + 6 );
     this.setState({ targetScore: x})
   }
 

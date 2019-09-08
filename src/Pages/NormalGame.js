@@ -38,9 +38,9 @@ class easyGame extends Component {
     return array;
   }
 
-  //generate random number between 18 and 36 for the Target Score
+  //generate random number between 6 and 36 for the Target Score
   generateTargetScore = () => {
-    let x = Math.floor(( Math.random() * 29 ) + 6 );
+    let x = Math.floor(( Math.random() * 31 ) + 6 );
     this.setState({ targetScore: x})
   }
 
@@ -51,7 +51,7 @@ class easyGame extends Component {
     this.shuffleArray( this.state.myLittlePonies );
   }
 
-  //reveals a pony after every fifth win
+  //reveals a pony after every win
   selectAPony = ( x ) => {
     let mlpCopy = JSON.parse( JSON.stringify( this.state.myLittlePonies ))
     mlpCopy[ x ].unlocked = 1

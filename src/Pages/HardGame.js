@@ -23,7 +23,8 @@ class easyGame extends Component {
     totalClicks: 0,
     cutieMarks: CutieMarksJSON,
     myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON, MyLittlePoniesHardJSON ),
-    display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value."
+    valArray: [ 1,2,3,4,5,6,7,8,9 ],
+    display: "Match the Target Score by clicking on the Cutie Marks, but be careful, their value changes each game."
   }
 
   //function to shuffle array
@@ -39,20 +40,21 @@ class easyGame extends Component {
     return array;
   }
 
-  //generate random number between 18 and 36 for the Target Score
+  //generate random number between 18 and 72 for the Target Score
   generateTargetScore = () => {
-    let x = Math.floor(( Math.random() * 29 ) + 6 );
+    let x = Math.floor(( Math.random() * 55 ) + 18 );
     this.setState({ targetScore: x})
   }
 
-  //run generateTargetScore after the screen has loaded
+  //generates target score and shuffles arrays after the screen has loaded
   componentDidMount() {
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
+    this.shuffleArray( this.state.valArray );
     this.shuffleArray( this.state.myLittlePonies );
   }
 
-  //reveals a pony after every fifth win
+  //reveals a pony after every win
   selectAPony = ( x ) => {
     let mlpCopy = JSON.parse( JSON.stringify( this.state.myLittlePonies ))
     mlpCopy[ x ].unlocked = 1
@@ -64,10 +66,12 @@ class easyGame extends Component {
     let text;
     let wins = this.state.playerWins;
     wins++;
+    //ends the game if the player unlocked all 60 
     if ( wins === 60 ) {
       let x = this.state.playerWins;
       this.selectAPony( x );
       text = "Amazing job! You found all the My Little Ponies! It only took you " + this.state.totalClicks + " clicks, that is awesome!";
+    //otherwise the game keeps going
     } else if ( wins < 60 ) {
       let x = this.state.playerWins;
       text = "Good job! You found " + this.state.myLittlePonies[ x ].name + "!";
@@ -80,6 +84,7 @@ class easyGame extends Component {
     });
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
+    this.shuffleArray( this.state.valArray );
   }
 
   //if Player Score > Target Score
@@ -93,6 +98,7 @@ class easyGame extends Component {
     });
     this.generateTargetScore();
     this.shuffleArray( this.state.cutieMarks );
+    this.shuffleArray( this.state.valArray );
   }
 
   //add value when button is clicked
@@ -129,11 +135,11 @@ class easyGame extends Component {
           display = { this.state.display }
         />
         <GameArea>
-          { this.state.cutieMarks.slice( 0, 4 ).map(( cutieMark ) => (
+          { this.state.cutieMarks.slice( 0, 4 ).map(( cutieMark, index ) => (
             <CutieMark
               clickMark = { this.clickMark }
               key = { cutieMark.id }
-              id = { cutieMark.id }
+              id = { this.state.valArray[ index ] }
               name = { cutieMark.name }
               image = { cutieMark.image }
             />

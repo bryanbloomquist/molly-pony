@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class GameLost extends Component {
   render() {
     return (
-      <div className = "loginArea scoreboard">
+      <div className = "loginArea">
         <form>
           <p>Nice try!</p>
           <p>You did your best!</p>
