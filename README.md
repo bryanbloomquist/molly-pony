@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My Little Pony Math Game
 
-## Available Scripts
+Deployed Site: [molly-pony.herokuapp.com](https://molly-pony.herokuapp.com)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+The My Little Pony Math game is a React app that is an updated version of the [Crystal-Collector](https://github.com/bryanbloomquist/crystal-collector) jQuery app I wrote for boot camp in 2018.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How To Play
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Easy Mode
 
-### `npm test`
+Each round 4 random Cutie Marks will be displayed, each with a hidden set value.  The user clicks on them until their score matches the target score, if they do so they unlock one of 12 ponies in the open field.  Once they find all 12 the game is over, and there is no penalty for going over the target too many times.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Normal Mode
 
-### `npm run build`
+Same as Easy mode, except that there are now 24 ponies to be rescued, and after the 10th time going over the target score, the user loses the game.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Hard Mode
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Same basic game play as Normal mode, except now the cutie marks hidden values randomly change each game, and can be as high as 9.  There are also 60 ponies instead of 24.  You still lose after 10 failed attempts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Follow up
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This game is a passion project that I made for my daughter.
