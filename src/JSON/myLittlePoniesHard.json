@@ -3,216 +3,252 @@
     "id": 25,
     "name": "Bulk Biceps",
     "image": "images/BulkBiceps.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "An enthusiastic and overly muscular pegasus stallion with tiny wings who appears in several episodes starting in season 2, with his most prominent roles in 'Wonderbolts Academy' and 'Equestria Games'. He works various odd jobs around Ponyville, such as working as a masseur at the town spa (first seen in 'Castle Sweet Castle') and running a nut snack cart (first seen in 'All Bottled Up'). His cutie mark is a dumbbell."
   },
   {
     "id": 26,
-    "name": "Cheerilee",
-    "image": "images/Cheerilee.jpg",
-    "unlocked": 0
+    "name": "Capper",
+    "image": "images/Capper.jpg",
+    "unlocked": 0,
+    "bio": "A conniving cat con artist who calls Klugetown his home. Capper lost everything he had when he tried scamming the local crime boss, and has since resorted to swindling others just to make ends meet."
   },
   {
     "id": 27,
-    "name": "Cheese Sandwich",
-    "image": "images/CheeseSandwich.jpg",
-    "unlocked": 0
+    "name": "Captain Celaeno",
+    "image": "images/CaptainCelaeno.jpg",
+    "unlocked": 0,
+    "bio": "The parrot-like leader of the pirates. Once proud and daring explorers of the skies, Celaeno and her crew were roped into the Storm King's service as mere postal carriers. It takes a certain group of six pony stowaways (plus one dragon) to rekindle her zest for adventure, making her an invaluable ally."
   },
   {
     "id": 28,
-    "name": "Cherry Jubilee",
-    "image": "images/CherryJubilee.jpg",
-    "unlocked": 0
+    "name": "Cheerilee",
+    "image": "images/Cheerilee.jpg",
+    "unlocked": 0,
+    "bio": "The Ponyville Schoolhouse's teacher. An earth pony, Miss Cheerilee sports a cherry-colored coat with a pink/cherry mane topped with a kind and cheerful attitude."
   },
   {
     "id": 29,
-    "name": "Coco Pommel",
-    "image": "images/CocoPommel.jpg",
-    "unlocked": 0
+    "name": "Cheese Sandwich",
+    "image": "images/CheeseSandwich.jpg",
+    "unlocked": 0,
+    "bio": "The self-proclaimed 'super duper party pony' who travels Equestria to throw the biggest, most spectacular parties wherever they're needed. He shows up in Ponyville in 'Pinkie Pride' where he unintentionally runs afoul of Pinkie Pie, the town's resident party planner, and returns in 'The Last Laugh' when Pinkie visits his newly-opened gag factory."
   },
   {
     "id": 30,
-    "name": "Daring Do",
-    "image": "images/DaringDo.jpg",
-    "unlocked": 0
+    "name": "Cherry Jubilee",
+    "image": "images/CherryJubilee.jpg",
+    "unlocked": 0,
+    "bio": "An enterprising earth pony who owns Cherry Hill Ranch, a cherry orchard and processing factory in the town of Dodge Junction. Evidently a fan of rodeos, as this is where she met Applejack."
   },
   {
     "id": 31,
-    "name": "Derpy Hooves",
-    "image": "images/DerpyHooves.jpg",
-    "unlocked": 0
+    "name": "Coco Pommel",
+    "image": "images/CocoPommel.jpg",
+    "unlocked": 0,
+    "bio": "A rising star in the Manehattan theater community and formerly the long-suffering assistant to fashion designer Suri Polomare, Rarity's rival during Fashion Week."
   },
   {
     "id": 32,
-    "name": "Doctor Fauna",
-    "image": "images/DoctorFauna.jpg",
-    "unlocked": 0
+    "name": "Daring Do",
+    "image": "images/DaringDo.jpg",
+    "unlocked": 0,
+    "bio": "Daring Do is an archaeologist pegasus with yellow fur and a grayscale mane who is the heroine of the adventurous tale of Daring Do and the Quest for the Sapphire Stone as well as many other titles, a series of books anypony can enjoy.\nDaring Do is actually a real pony, as shown in 'Daring Don't'. Her adventures actually happened and she recounts them in her novel series under the pen name (or maybe it's the other way around) 'A.K. Yearling'."
   },
   {
     "id": 33,
-    "name": "Fancy Pants",
-    "image": "images/FancyPants.jpg",
-    "unlocked": 0
+    "name": "Derpy Hooves",
+    "image": "images/DerpyHooves.jpg",
+    "unlocked": 0,
+    "bio": "Derpy is a grey pegasus mare with a blonde mane and a cluster of bubbles as her cutie mark. She works at the Ponyville post office, is clumsy and a bit dim but nice and well-meaning, and loves muffins."
   },
   {
     "id": 34,
-    "name": "Filthy Rich",
-    "image": "images/FilthyRich.jpg",
-    "unlocked": 0
+    "name": "Doctor Fauna",
+    "image": "images/DoctorFauna.jpg",
+    "unlocked": 0,
+    "bio": "A kindhearted veterinary from Ponyville who finds herself and her clinic swamped with animals who don't want to leave."
   },
   {
     "id": 35,
-    "name": "General Seaspray",
-    "image": "images/GeneralSeaspray.jpg",
-    "unlocked": 0
+    "name": "Fancy Pants",
+    "image": "images/FancyPants.jpg",
+    "unlocked": 0,
+    "bio": "An important and influential business unicorn in Canterlot"
   },
   {
     "id": 36,
-    "name": "Granny Smith",
-    "image": "images/GrannySmith.jpg",
-    "unlocked": 0
+    "name": "Filthy Rich",
+    "image": "images/FilthyRich.jpg",
+    "unlocked": 0,
+    "bio": "Diamond Tiara's father and one of the richest ponies in Ponyville. Every time a Zap Harvest comes around, he collects the first 100 jars of Granny Smith's signature Zap Apple Jam to sell at his store Barnyard Bargins. Apparently, Filthy Rich also has business dealings with the rest of the Apple family as well, as he has been seen talking turkey with Big Mac once."
   },
   {
     "id": 37,
-    "name": "Grubber",
-    "image": "images/Grubber.jpg",
-    "unlocked": 0
+    "name": "General Seaspray",
+    "image": "images/GeneralSeaspray.jpg",
+    "unlocked": 0,
+    "bio": "A general of the hippogriff navy, Seaspray is sent to accompany Silverstream to the School of Friendship."
   },
   {
     "id": 38,
-    "name": "Hoity Toity",
-    "image": "images/HoityToity.jpg",
-    "unlocked": 0
+    "name": "Grubber",
+    "image": "images/Grubber.jpg",
+    "unlocked": 0,
+    "bio": "A pug-faced hedgehog that serves in the Storm King's army as Tempest's sidekick. Grubber talks a big game to make up for his short stature, but would really like nothing more than to sit back and relax with a good snack."
   },
   {
     "id": 39,
-    "name": "Limestone Pie",
-    "image": "images/LimestonePie.jpg",
-    "unlocked": 0
+    "name": "Hoity Toity",
+    "image": "images/HoityToity.jpg",
+    "unlocked": 0,
+    "bio": "The owner of the Best of the Best Boutique in Canterlot, Hoity Toity is a rather important figure in Equestria's fashion scene."
   },
   {
     "id": 40,
     "name": "Lyra Heartstrings",
     "image": "images/LyraHeartstrings.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "A mint-green unicornnote  with a lyre cutie mark, and arguably the second most famous background mare, next to Derpy. She seems to have been made with Funny Background Events in mind. She's been spotted happily waving hi to Twilight early in the pilot episode, jumping up and down excitedly, mugging for the camera, and sitting on a bench like a human being among other things. She is often seen alongside Sweetie Drops/Bon Bon."
   },
   {
     "id": 41,
-    "name": "Marble Pie",
-    "image": "images/MarblePie.jpg",
-    "unlocked": 0
+    "name": "Mayor Mare",
+    "image": "images/MayorMare.jpg",
+    "unlocked": 0,
+    "bio": "A beige earth pony with a wavy gray mane and tail, Mayor Mare is a somewhat ineffectual leader who doesn't seem to carry as much authority as Ponyville's resident Princess Twilight, although she does at least officiate marriages."
   },
   {
     "id": 42,
-    "name": "Mayor Mare",
-    "image": "images/MayorMare.jpg",
-    "unlocked": 0
+    "name": "Ms Harshwhinny",
+    "image": "images/MsHarshwhinny.jpg",
+    "unlocked": 0,
+    "bio": "The Head of the Equestria Games, who also acts as its official inspector and judge."
   },
   {
     "id": 43,
-    "name": "Ms Harshwhinny",
-    "image": "images/MsHarshwhinny.jpg",
-    "unlocked": 0
+    "name": "Nightmare Moon",
+    "image": "images/NightmareMoon.jpg",
+    "unlocked": 0,
+    "bio": "An evil and wicked creature born from dark magic fueling Princess Luna's jealously and bitterness. Her desire to create a never-ending night forced Princess Celestia to use the Elements of Harmony to imprison her in the moon, seemingly for eternity. However, after one thousand years, the stars help her to escape, and this time she attacks first, leaving Equestria stuck on night time. After a short rampage, she is defeated and purified of her darkness by Twilight Sparkle and her friends."
   },
   {
     "id": 44,
-    "name": "Nightmare Moon",
-    "image": "images/NightmareMoon.jpg",
-    "unlocked": 0
+    "name": "Peppermint Twist",
+    "image": "images/PeppermintTwist.jpg",
+    "unlocked": 0,
+    "bio": "A friend of Apple Bloom's from school, she's an earth pony filly with frilly red hair and glasses as well as a heavy lisp. Like Apple Bloom, Peppermint Twist starts 'Call of the Cutie' without having discovered her mark and gets teased for it. She gets her cutie mark in the same episode (off-screen): a pair of candy canes due to her love of making candy."
   },
   {
     "id": 45,
-    "name": "Peppermint Twist",
-    "image": "images/PeppermintTwist.jpg",
-    "unlocked": 0
+    "name": "Photo Finish",
+    "image": "images/PhotoFinish.jpg",
+    "unlocked": 0,
+    "bio": "A famous fashion photographer obsessed with looking for the next big star in fashion."
   },
   {
     "id": 46,
-    "name": "Photo Finish",
-    "image": "images/PhotoFinish.jpg",
-    "unlocked": 0
+    "name": "Pipsqueak",
+    "image": "images/Pipsqueak.jpg",
+    "unlocked": 0,
+    "bio": "A young earth pony colt with a pinto coat and a British accent, he recently moved from Trottingham. He attends his first Nightmare Night ever by dressing up as a pirate."
   },
   {
     "id": 47,
-    "name": "Pipsqueak",
-    "image": "images/Pipsqueak.jpg",
-    "unlocked": 0
+    "name": "Princess Skystar",
+    "image": "images/PrincessSkystar.jpg",
+    "unlocked": 0,
+    "bio": "The bubbly seapony princess of Seaquestria, and Queen Novo's daughter. Skystar longs to spread her wings and make new friends after spending too many years cooped up in her undersea home. She gets her wish when she stumbles into the Mane Six in their quest for help against the Storm King."
   },
   {
     "id": 48,
-    "name": "Princess Flurry Heart",
-    "image": "images/PrincessFlurryHeart.jpg",
-    "unlocked": 0
+    "name": "Queen Novo",
+    "image": "images/QueenNovo.jpg",
+    "unlocked": 0,
+    "bio": "The ruler of Seaquestria, the kingdom of the seaponies. Novo had to evacuate her people to their current location after their original home, Mount Aris, came under threat from the Storm King's forces. Although she insists she and her people are happy with their new, secluded lives, she can't deny how much she misses their old way of life."
   },
   {
     "id": 49,
     "name": "Quibble Pants",
     "image": "images/QuibblePants.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "A stallion Rainbow Dash meets at a Daring Do convention. At first, he seems to like Daring Do as much as Rainbow does, only for her to learn that he only likes the first books and disavows the later series as having too much impossible action. Much to his surprise, he soon becomes entangled in a real Daring Do adventure."
   },
   {
     "id": 50,
     "name": "Saphire Shores",
     "image": "images/SaphireShores.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "The Pony of Pop, Sapphire Shores appeared at Carousel Boutique one day, having read about Rarity's fashion designs. She was so impressed with a Gem-Encrusted outfit on display that she bought it on the spot and ordered five others similar to it. She has since kept Rarity on retainer as her favorite designer."
   },
   {
     "id": 51,
     "name": "Sassy Saddles",
     "image": "images/SassySaddles.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "A unicorn Rarity hired as manager of her new Canterlot Carousel shop to help everything get ready for its grand opening. She has a multi-point plan to bring the boutique much business and success. Unfortunately, it comes at a price."
   },
   {
     "id": 52,
-    "name": "Spitfire",
-    "image": "images/Spitfire.jpg",
-    "unlocked": 0
+    "name": "Songbird Serenade",
+    "image": "images/SongbirdSerenade.jpg",
+    "unlocked": 0,
+    "bio": "Equestria's latest and greatest musical sensation. Songbird is brought on to lend her vocal talents at the Friendship Festival."
   },
   {
     "id": 53,
-    "name": "Starlight Glimmer",
-    "image": "images/StarlightGlimmer.jpg",
-    "unlocked": 0
+    "name": "Sunburst",
+    "image": "images/Sunburst.jpg",
+    "unlocked": 0,
+    "bio": "Starlight Glimmer's childhood friend, who left to study magic in Canterlot when they were foals. In the present day, he lives in the Crystal Empire. Sunburst isn't that magically powerful for a unicorn, but his knowledge of magical theory is second to none."
   },
   {
     "id": 54,
-    "name": "Sunburst",
-    "image": "images/Sunburst.jpg",
-    "unlocked": 0
+    "name": "Sweetie Drops / Bon Bon",
+    "image": "images/SweetieDrops.jpg",
+    "unlocked": 0,
+    "bio": "An earth pony with a cream coat, mixed purple/pink mane and tail with three bows as her cutie mark. She's a secret agent named Sweetie Drops but her Secret Identity as a Ponyville citizen is Bon Bon. She is often seen alongside Lyra Heartstrings. In 'Apple Family Reunion', she appears in one shot at the hoedown, but isn't included in the family photo."
   },
   {
     "id": 55,
-    "name": "Sweetie Drops",
-    "image": "images/SweetieDrops.jpg",
-    "unlocked": 0
+    "name": "Tempest Shadow / Fizzlebop Berrytwist",
+    "image": "images/TempestShadow.jpg",
+    "unlocked": 0,
+    "bio": "The Storm King's right-hand unicorn, and commander of his invasion fleet. A traitor to her homeland of Equestria, Tempest was alienated from the other ponies at a young age after losing her horn in an accident. Now she faithfully serves the Storm King in hunting down the Princesses of Equestria, Twilight Sparkle in particular, believing that their magic may restore her own."
   },
   {
     "id": 56,
     "name": "Terramar",
     "image": "images/Terramar.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "A young hippogriff and Silverstream's brother, Terramar is trying to decide whether to live on land as a hippogriff or in the sea as a seapony."
   },
   {
     "id": 57,
     "name": "the Spa Ponies",
     "image": "images/theSpaPonies.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "Four blue-eyed ponies who work at Ponyville's Day Spa. Lotus Blossom, the first one, debuts at the end of 'Bridle Gossip' asking Zecora for the bath recipe. She returns in 'Green Isn't Your Color', which introduces the other three: Aloe, a Palette Swap of Lotus Blossom; 'Quake', a large masseuse; and Roxie Rave, who first appears as one of Photo Finish's helpers and isn't seen working at the spa until 'A Friend in Deed', which also features Lotus Blossom and Aloe. Lotus Blossom and 'Quake' appear again in 'Ponyville Confidential'."
   },
   {
     "id": 58,
     "name": "the Tantabus",
     "image": "images/theTantabus.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "A mysterious force that appears to be made of nightmares, it is more like a phenomenon than an actual character. It was contained within Luna's dreams to prevent it from growing stronger. It grows stronger with every dream it infects and seeks to enter, and infect, the real world with its nightmares."
   },
   {
     "id": 59,
-    "name": "Vinyl Scratch",
+    "name": "Vinyl Scratch / DJ Pon-3",
     "image": "images/VinylScratch.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "An off-white unicorn with a two-tone electric blue mane, magenta eyes, and a pair of eighth notes as her cutie mark. Most of her in-show appearances have her, well, act as a DJ, or otherwise listening to music in her headphones."
   },
   {
     "id": 60,
     "name": "Zecora",
     "image": "images/Zecora.jpg",
-    "unlocked": 0
+    "unlocked": 0,
+    "bio": "A mysterious zebra who lives in the Everfree Forest. Most of the ponies distrust her at first because of her unusual appearance, and her seemingly cryptic warnings don't help her reputation. Afterwards, she becomes a helpful ally towards the ponies, using her knowledge of magical herbs and creatures to assist the Six."
   }
 ]
