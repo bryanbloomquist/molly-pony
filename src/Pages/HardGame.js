@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from "react-bootstrap";
+import { Button, Container, Modal } from "react-bootstrap";
 import CutieMarksJSON from "../JSON/CutieMarks.json";
 import MyLittlePoniesEasyJSON from "../JSON/myLittlePoniesEasy.json";
 import MyLittlePoniesNormalJSON from "../JSON/myLittlePoniesNormal.json";
@@ -24,7 +24,10 @@ class easyGame extends Component {
     cutieMarks: CutieMarksJSON,
     myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON, MyLittlePoniesHardJSON ),
     valArray: [ 1,2,3,4,5,6,7,8,9 ],
-    display: "Match the Target Score by clicking on the Cutie Marks, but be careful, their value changes each game."
+    display: "Match the Target Score by clicking on the Cutie Marks, but be careful, their value changes each game.",
+    show: false,
+    modalBody: "Temp Body",
+    modalTitle: "Temp Title"
   }
 
   //function to shuffle array
@@ -126,7 +129,31 @@ class easyGame extends Component {
     }
   }
 
+  //display pony and bio if pony is unlocked
+  clickPony = ( id ) => {
+    let thisPony = this.state.myLittlePonies.filter(( e ) => e.id === id );
+    if ( thisPony[ 0 ].unlocked === 1 ) {
+      this.setState({ 
+        modalTitle: thisPony[ 0 ].name,
+        modalBody: thisPony[ 0 ].bio
+      })
+      this.handleShow();
+    }
+    else return;
+  }
+
   backButton = () => this.props.history.push( "/" );
+
+  //constructor to handle the modal functions
+  constructor( props, context ){
+    super (props, context );
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+  }
+
+  handleClose = () => this.setState({ show: false });
+
+  handleShow = () => this.setState({ show: true });
 
   render() {
     return (
@@ -158,13 +185,26 @@ class easyGame extends Component {
         <PonyArea>
           { this.state.myLittlePonies.map(( myLittlePony ) => (
             <MyLittlePony
+              clickPony = { this.clickPony }
               key = { myLittlePony.id }
+              id = { myLittlePony.id }
               name = { myLittlePony.name }
               image = { myLittlePony.image }
               unlocked = { myLittlePony.unlocked }
             />
           ))}
         </PonyArea>
+        <Modal show = { this.state.show } onHide = { this.handleClose }>
+          <Modal.Header closeButton>
+            <Modal.Title>{ this.state.modalTitle }</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{ this.state.modalBody }</Modal.Body>
+          <Modal.Footer>
+            <Button variant = "warning" onClick = { this.handleClose }>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Container>
     );
   }

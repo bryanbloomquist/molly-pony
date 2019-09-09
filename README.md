@@ -23,3 +23,5 @@ Same basic game play as Normal mode, except now the cutie marks hidden values ra
 ### Follow up
 
 This game is a passion project that I made for my daughter.
+
+Pony bios and images were taken from tvtropes.org

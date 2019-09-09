@@ -3,7 +3,10 @@ import "../../App.css";
 
 const MyLittlePony = ( props ) => {
   return (
-    <div className = "ponyContainer">
+    <div 
+      className = "ponyContainer"
+      onClick = { () => props.clickPony( props.id ) }
+    >
       <img
         alt = { props.name }
         src = { props.image }
