@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Modal } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import CutieMarksJSON from "../JSON/CutieMarks.json";
 import MyLittlePoniesEasyJSON from "../JSON/myLittlePoniesEasy.json";
 import CutieMark from "../Components/GameArea/CutieMark.js";
@@ -8,6 +8,7 @@ import MyLittlePony from "../Components/PonyArea/MyLittlePony";
 import PonyArea from "../Components/PonyArea/PonyArea";
 import BackButton from "../Components/BackButton";
 import Billboard from "../Components/Billboard";
+import PonyModal from "../Components/PonyModal";
 import Scoreboard from "../Components/Scoreboard";
 import '../App.css';
 
@@ -24,7 +25,8 @@ class easyGame extends Component {
     display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value.",
     show: false,
     modalBody: "Temp Body",
-    modalTitle: "Temp Title"
+    modalTitle: "Temp Title",
+    modalImage: "Temp Image"
   }
 
   //function to shuffle array
@@ -124,7 +126,8 @@ class easyGame extends Component {
     if ( thisPony[ 0 ].unlocked === 1 ) {
       this.setState({ 
         modalTitle: thisPony[ 0 ].name,
-        modalBody: thisPony[ 0 ].bio
+        modalBody: thisPony[ 0 ].bio,
+        modalImage: thisPony[ 0 ].image
       })
       this.handleShow();
     }
@@ -183,17 +186,13 @@ class easyGame extends Component {
             />
           ))}
         </PonyArea>
-        <Modal show = { this.state.show } onHide = { this.handleClose }>
-          <Modal.Header closeButton>
-            <Modal.Title>{ this.state.modalTitle }</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>{ this.state.modalBody }</Modal.Body>
-          <Modal.Footer>
-            <Button variant = "warning" onClick = { this.handleClose }>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <PonyModal 
+          handleClose = { this.handleClose }
+          show = { this.state.show }
+          modalTitle = { this.state.modalTitle }
+          modalImage = { this.state.modalImage }
+          modalBody = { this.state.modalBody }
+        />
       </Container>
     );
   }
