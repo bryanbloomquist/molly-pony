@@ -65,24 +65,22 @@ class easyGame extends Component {
   //if Player Score = Target Score
   roundWon = () => {
     let text;
-    let wins = this.state.playerWins;
-    wins++;
-    if ( wins === 12 ) {
-      let x = this.state.playerWins;
-      this.selectAPony( x );
+    let x = this.state.playerWins;
+    let y = this.state.myLittlePonies.length - 1;
+    this.selectAPony( x );
+    this.showPony( x );
+    if ( x === y ) {
       text = "Amazing job! You found all the My Little Ponies! It only took you " + this.state.totalClicks + " clicks, that is awesome!";
-    } else if ( wins < 12 ) {
-      let x = this.state.playerWins;
+    } else if ( x < y ) {
       text = "Good job! You found " + this.state.myLittlePonies[ x ].name + "!";
-      this.selectAPony( x );
+      this.generateTargetScore();
+      this.shuffleArray( this.state.cutieMarks );
     }
     this.setState({
-      playerWins: wins,
+      playerWins: x + 1,
       playerScore: 0,
       display: text
     });
-    this.generateTargetScore();
-    this.shuffleArray( this.state.cutieMarks );
   }
 
   //if Player Score > Target Score
@@ -132,6 +130,17 @@ class easyGame extends Component {
       this.handleShow();
     }
     else return;
+  }
+
+  //display pony modal when pony is first unlocked
+  showPony = ( x ) => {
+    let thisPony = this.state.myLittlePonies[ x ];
+    this.setState({ 
+      modalTitle: thisPony.name,
+      modalBody: thisPony.bio,
+      modalImage: thisPony.image
+    })
+    this.handleShow();
   }
 
   backButton = () => this.props.history.push( "/" );
