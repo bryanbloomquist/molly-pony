@@ -15,20 +15,31 @@ import '../App.css';
 
 class normalGame extends Component {
 
-  state = {
-    playerWins: 0,
-    playerLosses: 0,
-    targetScore: 0,
-    playerScore: 0,
-    totalClicks: 0,
-    cutieMarks: CutieMarksJSON,
-    myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON ),
-    display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value.",
-    show: false,
-    modalBody: "Temp Body",
-    modalTitle: "Temp Title",
-    modalImage: "Temp Image"
+  constructor( props, context ){
+    super (props, context );
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.state = {
+      playerWins: 0,
+      playerLosses: 0,
+      targetScore: 0,
+      playerScore: 0,
+      totalClicks: 0,
+      cutieMarks: CutieMarksJSON,
+      myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON ),
+      display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value.",
+      show: false,
+      modalBody: "Temp Body",
+      modalTitle: "Temp Title",
+      modalImage: "Temp Image"
+    };
   }
+  
+  //close modal
+  handleClose = () => this.setState({ show: false });
+
+  //open modal
+  handleShow = () => this.setState({ show: true });
 
   //function to shuffle array
   shuffleArray = ( array ) => {
@@ -148,17 +159,6 @@ class normalGame extends Component {
   }
 
   backButton = () => this.props.history.push( "/" );
-
-  //constructor to handle the modal functions
-  constructor( props, context ){
-    super (props, context );
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClose = () => this.setState({ show: false });
-
-  handleShow = () => this.setState({ show: true });
 
   render() {
     return (

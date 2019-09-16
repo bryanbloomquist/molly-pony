@@ -16,21 +16,33 @@ import '../App.css';
 
 class hardGame extends Component {
 
-  state = {
-    playerWins: 0,
-    playerLosses: 0,
-    targetScore: 0,
-    playerScore: 0,
-    totalClicks: 0,
-    cutieMarks: CutieMarksJSON,
-    myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON, MyLittlePoniesHardJSON ),
-    valArray: [ 1,2,3,4,5,6,7,8,9 ],
-    display: "Match the Target Score by clicking on the Cutie Marks, but be careful, their value changes each game.",
-    show: false,
-    modalBody: "Temp Body",
-    modalTitle: "Temp Title",
-    modalImage: "Temp Image"
+  constructor( props, context ){
+    super (props, context );
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.state = {
+      playerWins: 0,
+      playerLosses: 0,
+      targetScore: 0,
+      playerScore: 0,
+      totalClicks: 0,
+      cutieMarks: CutieMarksJSON,
+      myLittlePonies: MyLittlePoniesEasyJSON.concat( MyLittlePoniesNormalJSON, MyLittlePoniesHardJSON ),
+      valArray: [ 1,2,3,4,5,6,7,8,9 ],
+      display: "Match the Target Score by clicking on the Cutie Marks, but be careful, their value changes each game.",
+      show: false,
+      modalBody: "Temp Body",
+      modalTitle: "Temp Title",
+      modalImage: "Temp Image"
+    };
   }
+
+  //close modal
+  handleClose = () => this.setState({ show: false });
+
+  //opan modal
+  handleShow = () => this.setState({ show: true });
+  
 
   //function to shuffle array
   shuffleArray = ( array ) => {
@@ -153,17 +165,6 @@ class hardGame extends Component {
   }
   
   backButton = () => this.props.history.push( "/" );
-
-  //constructor to handle the modal functions
-  constructor( props, context ){
-    super (props, context );
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClose = () => this.setState({ show: false });
-
-  handleShow = () => this.setState({ show: true });
 
   render() {
     return (
