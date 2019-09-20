@@ -1,0 +1,108 @@
+$greyblur: #e6e6facc;
+$pinkblur: #ffc0c099;
+$violet: #ee82ee;
+$pink: #ffc0cb;
+$lavender: #e6e6fa;
+$magenta: #ff00ff;
+$gold: #ffd700;
+
+body {
+  background-image: url("./images/PonyvilleBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center top;
+}
+
+.login {
+  background-color: $greyblur;
+  border: solid 5px $violet;
+  color: $magenta;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.loginBtn {
+  background-color: $pink;
+  border: solid 2px $violet;
+  font-size: 0.8em;
+  border-radius: 50%;
+  width: 25%;
+}
+
+.textboard {
+  background-color: $pinkblur;
+  border: solid 5px $lavender;
+  width: 100%;
+  font-size: 1.2em;
+  min-height: 150px;
+  overflow: auto;
+}
+
+.gameArea {
+  width: 100%;
+}
+
+.cutieMark {
+  border-radius: 25%;
+  border: solid 3px $magenta;
+  width: 100%;
+}
+
+.hovereffect {
+  position: relative;
+  cursor: default;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.hovereffect:hover img {
+  -ms-transform: scale( 1.1 );
+  -webkit-transform: scale( 1.1 );
+  transform: scale( 1.1 );
+  border: solid 3px $gold;
+}
+
+.heading {
+  float: left;
+  width: 75%;
+}
+
+.data {
+  float: left;
+  width: 25%;
+  text-align: right;
+}
+
+.ponyArea {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
+.ponyContainer {
+  width: 100%;
+  float: left;
+  overflow: auto;
+}
+
+.myLittlePony {
+  border-radius: 10%;
+  border: solid 3px $gold;
+  width: 100%;
+}
+
+.hidden {
+  filter: grayscale( 100% );
+  opacity: 0.1;
+}
+
+.found {
+  filter: grayscale( 0% );
+  opacity: 1;
+}

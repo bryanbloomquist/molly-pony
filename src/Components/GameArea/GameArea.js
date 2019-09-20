@@ -1,9 +1,8 @@
 import React from "react";
-import "../../App.css";
 
 const GameArea = ( props ) => {
   return (
-    <div className = "gameArea">
+    <div className = "gameArea p-1 m-2">
       { props.children }
     </div>
   );

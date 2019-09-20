@@ -1,10 +1,11 @@
 import React from "react";
-import "../../App.css";
+import { Col } from "react-bootstrap";
 
 const CutieMark = ( props ) => {
   return (
-    <div
-      className = "imgContainer hovereffect"
+    <Col 
+      xs = { 3 } sm = { 6 }
+      className = "hovereffect p-2 m-0"
       onClick = { () => props.clickMark( props.id )}
     >
       <img
@@ -12,7 +13,7 @@ const CutieMark = ( props ) => {
         src = { props.image }
         className = "cutieMark"
       />
-    </div>
+    </Col>
   )
 }
 

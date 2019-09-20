@@ -1,9 +1,8 @@
 import React from "react";
-import "../App.css";
 
 const Scoreboard = ( props ) => {
   return (
-    <div className = "scoreboard">
+    <div className = "textboard p-2 m-2">
       <span className = "heading">Target Score:</span>
       <span className = "data">{ props.targetScore }</span>
       <span className = "heading">Player Score:</span>

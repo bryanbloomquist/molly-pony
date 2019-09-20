@@ -1,6 +1,5 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import "../App.css";
 
 const PonyModal = ( props ) => {
   return (
