@@ -22,19 +22,27 @@ body {
   font-size: 1.2em;
 }
 
+.nameInput {
+  text-align: center;
+  color: $magenta;
+  background-color: $pinkblur;
+  font-weight: 700;
+}
+
 .loginBtn {
   background-color: $pink;
   border: solid 2px $violet;
   font-size: 0.8em;
   border-radius: 50%;
   width: 25%;
+  color: darken( $violet, 20% );
 }
 
 .textboard {
   background-color: $pinkblur;
-  border: solid 5px $lavender;
+  border: solid 5px $violet;
+  color: darken( $magenta, 30% );
   width: 100%;
-  font-size: 1.2em;
   min-height: 150px;
   overflow: auto;
 }
@@ -68,6 +76,23 @@ body {
   border: solid 3px $gold;
 }
 
+.gameOver {
+  width: 100%;
+  background: $greyblur;
+  border: solid 5px darken( $violet, 20% );
+}
+
+.gameOverBtn {
+  width: 100%;
+  border: solid 3px $violet;
+  background: $pinkblur;
+  color: darken( $magenta, 30% );
+  &:hover {
+    border: solid 3px darken( $violet, 20% );
+    background-color: $greyblur; 
+  }
+}
+
 .heading {
   float: left;
   width: 75%;
@@ -81,7 +106,7 @@ body {
 
 .ponyArea {
   width: 100%;
-  height: 100vh;
+  max-height: 100vh;
   overflow: auto;
 }
 
@@ -105,4 +130,23 @@ body {
 .found {
   filter: grayscale( 0% );
   opacity: 1;
+}
+
+.modalHeader, .modalBody, .modalFooter {
+  background-color: $pinkblur;
+  border: solid 2px $violet;
+  color: darken( $violet, 20% );
+}
+
+.modalImg {
+  width: 100%;
+}
+
+.modalBtn {
+  background-color: $violet;
+  border: solid 1px $violet;
+  &:hover {
+    background-color: $magenta;
+    border: solid 1px $violet;
+  }
 }

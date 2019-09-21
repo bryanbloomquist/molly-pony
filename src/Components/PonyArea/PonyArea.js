@@ -2,7 +2,7 @@ import React from "react";
 
 const PonyArea = ( props ) => {
   return (
-    <div className = "ponyArea m-0 p-0">
+    <div className = "ponyArea p-2">
       { props.children }
     </div>
   );
