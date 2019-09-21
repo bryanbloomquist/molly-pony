@@ -1,6 +1,6 @@
 # My Little Pony Math Game
 
-Deployed Site: [molly-pony.herokuapp.com](https://molly-pony.herokuapp.com)
+Deployed Site: [bryanbloomquist.com/molly-pony](https://bryanbloomquist.com/molly-pony/)
 
 ## Overview
 
