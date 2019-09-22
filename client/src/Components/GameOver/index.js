@@ -6,6 +6,13 @@ const GameOver = ( props ) => {
       <button
         className = "gameOverBtn p-2 mb-2"
         type = "button"
+        onClick = {() => props.showHighScores()}
+      >
+        View Highscores
+      </button>
+      <button
+        className = "gameOverBtn p-2 mb-2"
+        type = "button"
         onClick = {() => props.startNewGame( 1 )}
       >
         Play Easy Game

@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 
 const PonyModal = ( props ) => {
   return (
-    <Modal show = { props.show } onHide = { props.handleClose }>
+    <Modal show = { props.showModal1 } onHide = { props.handleClose1 }>
       <Modal.Header className = "modalHeader">
         <Modal.Title>{ props.modalTitle }</Modal.Title>
       </Modal.Header>
@@ -17,7 +17,7 @@ const PonyModal = ( props ) => {
       </Modal.Body>
       <Modal.Footer className = "modalFooter">
         <Button 
-          onClick = { () => props.handleClose() }
+          onClick = { () => props.handleClose1() }
           className = "modalBtn mx-auto"
         >
           Close

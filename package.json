@@ -1,33 +1,29 @@
 {
   "name": "molly-pony",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "gh-pages": "^2.1.1",
-    "node-sass": "^4.12.0",
-    "react": "^16.9.0",
-    "react-bootstrap": "^1.0.0-beta.11",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.1.0"
-  },
-  "homepage": "https://bryanbloomquist.github.io/molly-pony/",
+  "version": "0.2.0",
+  "description": "A My Little Pony themed math game",
+  "main": "server.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedEasyDB.js && node scripts/seedNormalDB.js && node scripts/seedHardDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "author": "Bryan Bloomquist",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "nodemon": "^1.19.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ]
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.6.9"
   }
 }

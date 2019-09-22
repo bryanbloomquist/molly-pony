@@ -7,19 +7,24 @@ import Login from "./Components/Login";
 import GameOver from "./Components/GameOver";
 import GameArea from "./Components/GameArea/GameArea.js";
 import MyLittlePony from "./Components/PonyArea/MyLittlePony";
+import ScoreModal from "./Components/ScoreModal";
 import PonyArea from "./Components/PonyArea/PonyArea";
 import Billboard from "./Components/Billboard";
 import PonyModal from "./Components/PonyModal";
 import Scoreboard from "./Components/Scoreboard";
 import "./styles.scss";
+import API from './Utils/API.js';
 
 class App extends Component {
   constructor( props, context ){
     super ( props, context );
+    // this.showHighScores = this.showHighScores.bind( this );
     this.startNewGame = this.startNewGame.bind( this );
     this.setDifficulty = this.setDifficulty.bind( this );
-    this.handleShow = this.handleShow.bind( this );
-    this.handleClose = this.handleClose.bind( this );
+    this.handleShow1 = this.handleShow1.bind( this );
+    this.handleShow2 = this.handleShow2.bind( this );
+    this.handleClose1 = this.handleClose1.bind( this );
+    this.handleClose2 = this.handleClose2.bind( this );
     this.state = {
       playerName: 0, //active players name
       playerWins: 0, //how many times the player matched the target score
@@ -29,14 +34,17 @@ class App extends Component {
       totalClicks: 0, //tallys total number of clicks to beat game
       difficulty: 0, //easy(1), hard(3), normal(2)
       gameStatus: 1, //is the game going or not
+      topScores:  [{ name: "Rasberry Sparkletwist", score: 12, clicks: 69 }], //top ten scores pulled from database
       cutieMarks: CutieMarksJSON, //array to draw game buttons from 
       myLittlePonies: MyLittlePoniesJSON, //array to draw the ponies to be rescued from 
       valArray: [ 1,2,3,4,5,6,7,8,9 ], //number array for hard difficulty
       display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value.", //instructions and encouragement for player
-      show: false, //is the modal visible or not
+      showModal1: false, //is the first modal visible or not
+      showModal2: false, //is the second modal visible or not
       modalBody: "Temp Body", //body of the modal
       modalTitle: "Temp Title", //title of the modal
-      modalImage: "Temp Image" //image for the modal
+      modalImage: "Temp Image", //image for the modal
+      modalTitle2: "Temp Title" //title for modal 2
     }
   }
 
@@ -53,7 +61,7 @@ class App extends Component {
         modalTitle: "Sorry, please enter your name to play.",
         modalBody: "",
         modalImage: "images/sadPony.gif"
-      }, () => { this.handleShow(); })
+      }, () => { this.handleShow1(); })
     } else {
       if ( x === 1 ) { 
         this.setState({ myLittlePonies: this.state.myLittlePonies.slice( 0, 12 )});
@@ -67,7 +75,7 @@ class App extends Component {
     }
   }
 
-  //start a new game
+  //reset the state to 0 and start a new game
   startNewGame = ( x ) => {
     this.setState({
       playerWins: 0,
@@ -84,10 +92,12 @@ class App extends Component {
   }
 
   //this handles the modal close function
-  handleClose = () => this.setState({ show: false });
+  handleClose1 = () => this.setState({ showModal1: false });
+  handleClose2 = () => this.setState({ showModal2: false });
 
   //this handles the modal open function
-  handleShow = () => this.setState({ show: true });
+  handleShow1 = () => this.setState({ showModal1: true });
+  handleShow2 = () => this.setState({ showModal2: true });
 
   //this function is used shuffle the array passed into it
   shuffleArray = ( array ) => {
@@ -145,6 +155,12 @@ class App extends Component {
     this.showPony( x );
     if ( x === y ) {
       text = "Amazing job, " + name + "! You found all the My Little Ponies! It only took you " + this.state.totalClicks + " clicks, that is awesome! Do you want to play again?";
+      let playerData = {
+        "name": this.state.playerName,
+        "score": this.state.playerWins + 1,
+        "clicks": this.state.totalClicks + 1
+      };
+      this.saveResult( playerData );
       this.setState({ gameStatus: 0 });
     } else if ( x < y ) {
       text = "Good job, " + name + "! You found " + this.state.myLittlePonies[ x ].name + "!";
@@ -157,6 +173,55 @@ class App extends Component {
       playerScore: 0,
       display: text,
     });
+  }
+
+  //save player score to database at the end of the game
+  saveResult = ( score ) => {
+    if ( this.state.difficulty === 1 ) {
+      API.saveScore( "easies", score )
+      .then(( res ) => {
+        console.log( res.data )
+      })
+      .catch(( err ) => console.log( err ));
+    } else if ( this.state.difficulty === 2 ) {
+      API.saveScore( "normals", score )
+      .then(( res ) => {
+        console.log( res.data )
+      })
+      .catch(( err ) => console.log( err ));
+    } else if ( this.state.difficulty === 3 ) {
+      API.saveScore( "hards", score )
+      .then(( res ) => {
+        console.log( res.data )
+      })
+      .catch(( err ) => console.log( err ));
+    }
+  }
+
+  //calls the top ten scores to display at the end of the game
+  getTopScore = ( diff ) => {
+    API.getScores( diff )
+    .then(( res ) => {
+      this.setState({ topScores: res.data })
+      console.log( this.state.topScores );
+    })
+    .catch(( err ) => console.log( err ));
+  }
+
+  //shows the top ten scores when button is clicked
+  showHighScores = ( ) => {
+    let diff = this.state.difficulty;
+    if ( diff === 1 ) {
+      this.getTopScore( "easies" );
+      this.setState({ modalTitle2: "Top Scores ( Easy )" });
+    } else if ( diff === 2 ) {
+      this.getTopScore( "normals" );
+      this.setState({ modalTitle2: "Top Scores ( Normal )" });
+    } else if ( diff === 3 ) {
+      this.getTopScore( "hards" );
+      this.setState({ modalTitle2: "Top Scores ( Hard )" });
+    }
+    this.handleShow2();
   }
 
   //if Player Score > Target Score
@@ -176,19 +241,22 @@ class App extends Component {
 
   //add value when button is clicked
   clickMark = ( id ) => {
-    let pointValue = id;
-    let currentScore = this.state.playerScore;
-    let target = this.state.targetScore;
-    let clicks = this.state.totalClicks;
-    currentScore += pointValue;
-    clicks++;
-    this.setState({ totalClicks: clicks })
-    if ( currentScore > target ) {
-      this.roundLost();
-    } else if ( currentScore === target ) {
-      this.roundWon();
-    } else {
-      this.setState({ playerScore: currentScore })
+    let y = this.state.myLittlePonies.length;
+    if ( this.state.playerWins < y ) {
+      let pointValue = id;
+      let currentScore = this.state.playerScore;
+      let target = this.state.targetScore;
+      let clicks = this.state.totalClicks;
+      currentScore += pointValue;
+      clicks++;
+      this.setState({ totalClicks: clicks })
+      if ( currentScore > target ) {
+        this.roundLost();
+      } else if ( currentScore === target ) {
+        this.roundWon();
+      } else {
+        this.setState({ playerScore: currentScore })
+      }
     }
   }
 
@@ -201,7 +269,7 @@ class App extends Component {
         modalBody: thisPony[ 0 ].bio,
         modalImage: thisPony[ 0 ].image
       })
-      this.handleShow();
+      this.handleShow1();
     }
     else return;
   }
@@ -214,7 +282,7 @@ class App extends Component {
       modalBody: thisPony.bio,
       modalImage: thisPony.image
     })
-    this.handleShow();
+    this.handleShow1();
   }
 
   render() {
@@ -227,8 +295,8 @@ class App extends Component {
           handleInputChange = { this.handleInputChange }
         />
         <PonyModal 
-          handleClose = { this.handleClose }
-          show = { this.state.show }
+          handleClose1 = { this.handleClose1 }
+          showModal1 = { this.state.showModal1 }
           modalTitle = { this.state.modalTitle }
           modalImage = { this.state.modalImage }
           modalBody = { this.state.modalBody }
@@ -257,7 +325,10 @@ class App extends Component {
                 </Row>
               </GameArea>
             : 
-              <GameOver startNewGame = { this.startNewGame } />
+              <GameOver
+                showHighScores = { this.showHighScores }
+                startNewGame = { this.startNewGame }
+              />
             }      
             <Scoreboard 
               targetScore = { this.state.targetScore }
@@ -284,12 +355,24 @@ class App extends Component {
           </Col>
         </Row>
         <PonyModal 
-          handleClose = { this.handleClose }
-          show = { this.state.show }
+          handleClose1 = { this.handleClose1 }
+          showModal1 = { this.state.showModal1 }
           modalTitle = { this.state.modalTitle }
           modalImage = { this.state.modalImage }
           modalBody = { this.state.modalBody }
         />
+        <div>
+        { this.state.topScores.map(( scores ) => (
+          <ScoreModal
+            handleClose2 = { this.handleClose2 }
+            showModal2 = { this.state.showModal2 }
+            modalTitle2 = { this.state.modalTitle2 }
+            name = { scores.name }
+            score = { scores.score }
+            clicks = { scores.clicks }
+          />
+        ))}
+        </div>
       </Container>
     );
   }
