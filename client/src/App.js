@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal, Table, Button } from "react-bootstrap";
 import CutieMarksJSON from "./JSON/CutieMarks.json";
 import MyLittlePoniesJSON from "./JSON/myLittlePonies.json";
 import CutieMark from "./Components/GameArea/CutieMark.js";
@@ -7,7 +7,6 @@ import Login from "./Components/Login";
 import GameOver from "./Components/GameOver";
 import GameArea from "./Components/GameArea/GameArea.js";
 import MyLittlePony from "./Components/PonyArea/MyLittlePony";
-import ScoreModal from "./Components/ScoreModal";
 import PonyArea from "./Components/PonyArea/PonyArea";
 import Billboard from "./Components/Billboard";
 import PonyModal from "./Components/PonyModal";
@@ -18,7 +17,6 @@ import API from './Utils/API.js';
 class App extends Component {
   constructor( props, context ){
     super ( props, context );
-    // this.showHighScores = this.showHighScores.bind( this );
     this.startNewGame = this.startNewGame.bind( this );
     this.setDifficulty = this.setDifficulty.bind( this );
     this.handleShow1 = this.handleShow1.bind( this );
@@ -34,7 +32,7 @@ class App extends Component {
       totalClicks: 0, //tallys total number of clicks to beat game
       difficulty: 0, //easy(1), hard(3), normal(2)
       gameStatus: 1, //is the game going or not
-      topScores:  [{ name: "Rasberry Sparkletwist", score: 12, clicks: 69 }], //top ten scores pulled from database
+      topScores: [{ name: "Rasberry Sparkletwist", score: 12, clicks: 69 }], //top ten scores pulled from database
       cutieMarks: CutieMarksJSON, //array to draw game buttons from 
       myLittlePonies: MyLittlePoniesJSON, //array to draw the ponies to be rescued from 
       valArray: [ 1,2,3,4,5,6,7,8,9 ], //number array for hard difficulty
@@ -58,14 +56,14 @@ class App extends Component {
   setDifficulty = ( x ) => {
     if ( !this.state.playerName ) {
       this.setState({
-        modalTitle: "Sorry, please enter your name to play.",
+        modalTitle: "Sorry, please enter a name to play.",
         modalBody: "",
         modalImage: "images/sadPony.gif"
-      }, () => { this.handleShow1(); })
+      }, () => this.handleShow1( ))
     } else {
-      if ( x === 1 ) { 
+      if ( x === 1 ) { //easy difficulty, only selects the first 12 ponies for game play
         this.setState({ myLittlePonies: this.state.myLittlePonies.slice( 0, 12 )});
-      } else if ( x === 2 ) {
+      } else if ( x === 2 ) { //normal difficulty, only selects the first 24
         this.setState({ myLittlePonies: this.state.myLittlePonies.slice( 0, 24 )});
       }
       this.setState({ difficulty: x, }, () => { 
@@ -86,20 +84,18 @@ class App extends Component {
       gameStatus: 1,
       myLittlePonies: MyLittlePoniesJSON,
       display: "Match the Target Score by clicking on the Cutie Marks, each Cutie Mark has a hidden value.",
-    }, () => {
-      this.setDifficulty( x );
-    });
+    }, () => this.setDifficulty( x ));
   }
 
-  //this handles the modal close function
+  //these handle the modal close function for both modals
   handleClose1 = () => this.setState({ showModal1: false });
   handleClose2 = () => this.setState({ showModal2: false });
 
-  //this handles the modal open function
+  //these handle the modal open function for both modals
   handleShow1 = () => this.setState({ showModal1: true });
   handleShow2 = () => this.setState({ showModal2: true });
 
-  //this function is used shuffle the array passed into it
+  //the Fisher-Yates algoritim is used shuffle the array passed into it
   shuffleArray = ( array ) => {
     let currentIndex = array.length, tempVal, randomIndex;
     while ( 0 !== currentIndex ) {
@@ -120,15 +116,12 @@ class App extends Component {
     if ( this.state.difficulty === 1 ) {
       let x = this.randomizer( 6, 36 );
       this.setState({ targetScore: x });
-      return;
     } else if ( this.state.difficulty === 2 ) {
       let x = this.randomizer( 9, 48 );
       this.setState({ targetScore: x });
-      return;
     } else if ( this.state.difficulty === 3 ) {
       let x = this.randomizer( 18, 96 );
       this.setState({ targetScore: x });
-      return;
     }
   }
 
@@ -149,27 +142,29 @@ class App extends Component {
   roundWon = () => {
     let text;
     let name = this.state.playerName;
+    let clicks = this.state.totalClicks + 1;
     let x = this.state.playerWins;
-    let y = this.state.myLittlePonies.length - 1;
+    let y = this.state.myLittlePonies.length;
+    let wins = x + 1;
     this.selectAPony( x );
     this.showPony( x );
-    if ( x === y ) {
-      text = "Amazing job, " + name + "! You found all the My Little Ponies! It only took you " + this.state.totalClicks + " clicks, that is awesome! Do you want to play again?";
+    if ( wins === y ) {
+      text = "Amazing job, " + name + "! You found all the My Little Ponies! It only took you " + clicks + " clicks, that is awesome! Do you want to play again?";
       let playerData = {
-        "name": this.state.playerName,
-        "score": this.state.playerWins + 1,
-        "clicks": this.state.totalClicks + 1
+        "name": name,
+        "score": wins,
+        "clicks": clicks
       };
       this.saveResult( playerData );
       this.setState({ gameStatus: 0 });
-    } else if ( x < y ) {
+    } else if ( wins < y ) {
       text = "Good job, " + name + "! You found " + this.state.myLittlePonies[ x ].name + "!";
       this.generateTargetScore();
       this.shuffleArray( this.state.cutieMarks );
       this.shuffleArray( this.state.valArray );
     }
     this.setState({
-      playerWins: x + 1,
+      playerWins: wins,
       playerScore: 0,
       display: text,
     });
@@ -179,21 +174,15 @@ class App extends Component {
   saveResult = ( score ) => {
     if ( this.state.difficulty === 1 ) {
       API.saveScore( "easies", score )
-      .then(( res ) => {
-        console.log( res.data )
-      })
+      .then(( res ) => console.log( res.data ))
       .catch(( err ) => console.log( err ));
     } else if ( this.state.difficulty === 2 ) {
       API.saveScore( "normals", score )
-      .then(( res ) => {
-        console.log( res.data )
-      })
+      .then(( res ) => console.log( res.data ))
       .catch(( err ) => console.log( err ));
     } else if ( this.state.difficulty === 3 ) {
       API.saveScore( "hards", score )
-      .then(( res ) => {
-        console.log( res.data )
-      })
+      .then(( res ) => console.log( res.data ))
       .catch(( err ) => console.log( err ));
     }
   }
@@ -201,27 +190,22 @@ class App extends Component {
   //calls the top ten scores to display at the end of the game
   getTopScore = ( diff ) => {
     API.getScores( diff )
-    .then(( res ) => {
-      this.setState({ topScores: res.data })
-      console.log( this.state.topScores );
-    })
+    .then(( res ) => this.setState({ topScores: res.data }))
     .catch(( err ) => console.log( err ));
   }
 
   //shows the top ten scores when button is clicked
   showHighScores = ( ) => {
-    let diff = this.state.difficulty;
-    if ( diff === 1 ) {
+    if ( this.state.difficulty === 1 ) {
       this.getTopScore( "easies" );
-      this.setState({ modalTitle2: "Top Scores ( Easy )" });
-    } else if ( diff === 2 ) {
+      this.setState({ modalTitle2: "Top Scores ( Easy )" }, () => { this.handleShow2( )});
+    } else if ( this.state.difficulty === 2 ) {
       this.getTopScore( "normals" );
-      this.setState({ modalTitle2: "Top Scores ( Normal )" });
-    } else if ( diff === 3 ) {
+      this.setState({ modalTitle2: "Top Scores ( Normal )" }, () => { this.handleShow2( )});
+    } else if ( this.state.difficulty === 3 ) {
       this.getTopScore( "hards" );
-      this.setState({ modalTitle2: "Top Scores ( Hard )" });
+      this.setState({ modalTitle2: "Top Scores ( Hard )" }, () => { this.handleShow2( )});
     }
-    this.handleShow2();
   }
 
   //if Player Score > Target Score
@@ -309,7 +293,7 @@ class App extends Component {
             <Billboard 
               display = { this.state.display }
             />
-            { this.state.gameStatus === 1 
+            { this.state.gameStatus === 1
             ? 
               <GameArea>
                 <Row>
@@ -361,18 +345,35 @@ class App extends Component {
           modalImage = { this.state.modalImage }
           modalBody = { this.state.modalBody }
         />
-        <div>
-        { this.state.topScores.map(( scores ) => (
-          <ScoreModal
-            handleClose2 = { this.handleClose2 }
-            showModal2 = { this.state.showModal2 }
-            modalTitle2 = { this.state.modalTitle2 }
-            name = { scores.name }
-            score = { scores.score }
-            clicks = { scores.clicks }
-          />
-        ))}
-        </div>
+        <Modal show = { this.state.showModal2 } onHide = { this.handleClose2 }>
+          <Modal.Header className = "modalHeader" closeButton>
+            <Modal.Title>{ this.state.modalTitle2 }</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className = "modalBody">
+            <img src = "/images/ManeSix.png" alt = "The Mane Six" className = "modalImg" />
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Score</th>
+                  <th>Clicks</th>
+                </tr>
+              </thead>
+              <tbody>
+                { this.state.topScores.map(( scores, i ) => (
+                  <tr key = { scores._id + "a" }>
+                    <td key = { scores._id + "b" }>{ scores.name }</td>
+                    <td key = { scores._id + "c" }>{ scores.score }</td>
+                    <td key = { scores._id + "d" }>{ scores.clicks }</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Modal.Body>
+          <Modal.Footer className = "modalFooter">
+            <Button onClick = { () => this.handleClose2() } className = "modalBtn mx-auto">Close</Button>
+          </Modal.Footer>
+        </Modal>
       </Container>
     );
   }

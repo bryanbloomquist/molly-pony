@@ -4,7 +4,7 @@ import { Modal, Button } from "react-bootstrap";
 const PonyModal = ( props ) => {
   return (
     <Modal show = { props.showModal1 } onHide = { props.handleClose1 }>
-      <Modal.Header className = "modalHeader">
+      <Modal.Header className = "modalHeader" closeButton>
         <Modal.Title>{ props.modalTitle }</Modal.Title>
       </Modal.Header>
       <Modal.Body className = "modalBody">
