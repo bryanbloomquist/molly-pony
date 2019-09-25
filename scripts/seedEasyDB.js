@@ -7,6 +7,7 @@ const easySeed = [
   {
     name: "Rasberry Sparkletwist",
     score: 12,
+    losses: 3,
     clicks: 69
   }
 ]

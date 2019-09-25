@@ -7,6 +7,7 @@ const hardSeed = [
   {
     name: "Rasberry Sparkletwist",
     score: 60,
+    losses: 2,
     clicks: 395
   }
 ]

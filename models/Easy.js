@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const easySchema = new Schema({
   name: String,
   score: Number,
+  losses: Number,
   clicks: Number
 });
 

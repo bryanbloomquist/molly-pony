@@ -5,6 +5,7 @@ $pink: #ffc0cb;
 $lavender: #e6e6fa;
 $magenta: #ff00ff;
 $gold: #ffd700;
+$white: #ffffff;
 
 body {
   background-image: url("./images/PonyvilleBackground.png");
@@ -43,7 +44,7 @@ body {
   border: solid 5px $violet;
   color: darken( $magenta, 30% );
   width: 100%;
-  min-height: 150px;
+  min-height: 100px;
   overflow: auto;
 }
 
@@ -80,6 +81,21 @@ body {
   width: 100%;
   background: $greyblur;
   border: solid 5px darken( $violet, 20% );
+}
+
+.centered {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  font-size: 2em;
+  font-weight: 600;
+  color: $magenta;
+}
+
+.invisible {
+  visibility: hidden;
+  height: 0;
+  width: 0;
 }
 
 .gameOverBtn {
@@ -139,6 +155,9 @@ body {
 }
 
 .modalImg {
+  border: solid 3px $violet;
+  display: block;
+  margin: 0px auto 10px;
   width: 100%;
 }
 
@@ -148,5 +167,18 @@ body {
   &:hover {
     background-color: $magenta;
     border: solid 1px $violet;
+  }
+}
+
+.button {
+  background-color: $pink;
+  border: solid 1px $violet;
+  color: $magenta;
+  display: block;
+  margin: 10px auto;
+  &:hover {
+    background-color: $violet;
+    border: solid 1px $pink;
+    color: $white;
   }
 }

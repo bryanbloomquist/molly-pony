@@ -13,7 +13,7 @@ const PonyModal = ( props ) => {
           alt = { props.modalTitle }
           className = "modalImg"
         />
-        <p>{ props.modalBody }</p>
+        <div>{ props.modalBody }</div>
       </Modal.Body>
       <Modal.Footer className = "modalFooter">
         <Button 

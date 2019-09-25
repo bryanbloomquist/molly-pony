@@ -7,6 +7,7 @@ const normalSeed = [
   {
     name: "Rasberry Sparkletwist",
     score: 24,
+    losses: 4,
     clicks: 138
   }
 ]

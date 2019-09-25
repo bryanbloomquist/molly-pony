@@ -4,7 +4,7 @@ module.exports = {
   findAll: function( req, res ) {
     db.Easy
       .find( req.query )
-      .sort({ score: -1, clicks: 1 })
+      .sort({ score: -1, clicks: 1, losses: 1 })
       .limit( 10 )
       .then(( dbModel ) => res.json( dbModel ))
       .catch(( err ) => res.status( 422 ).json( err ));

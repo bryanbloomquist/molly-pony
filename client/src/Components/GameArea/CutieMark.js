@@ -13,6 +13,9 @@ const CutieMark = ( props ) => {
         src = { props.image }
         className = "cutieMark"
       />
+      <div className = { props.difficulty === 1 ? "centered" : "invisible" }>
+        { props.id }
+      </div>
     </Col>
   )
 }

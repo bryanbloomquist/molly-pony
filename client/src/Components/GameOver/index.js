@@ -2,14 +2,17 @@ import React from "react";
 
 const GameOver = ( props ) => {
   return(
-    <div className = "gameOver p-2 m-2">
-      <button
-        className = "gameOverBtn p-2 mb-2"
-        type = "button"
-        onClick = {() => props.showHighScores()}
-      >
-        View Highscores
-      </button>
+    <div className = { !props.gameStatus ? "gameOver p-2 m-2" : "gameOver p-2 mx-auto"}>
+      { !props.gameStatus
+      ? <button
+          className = "gameOverBtn p-2 mb-2"
+          type = "button"
+          onClick = {() => props.showHighScores()}
+        >
+          View Highscores
+        </button>
+      : <span></span>
+      }
       <button
         className = "gameOverBtn p-2 mb-2"
         type = "button"
