@@ -26,7 +26,7 @@ class App extends Component {
     this.handleClose2 = this.handleClose2.bind( this );
     this.state = {
       playerName: 0,
-      playerWins: 59,
+      playerWins: 0,
       playerLosses: 0,
       targetScore: 0,
       playerScore: 0,
@@ -214,12 +214,9 @@ class App extends Component {
         this.setState({ 
           myLittlePonies: [ ...MyLittlePoniesJSON.slice( 0, 12 )],
           cutieMarks: [ ...CutieMarksJSON.slice( 0, 4 )]
-          // myLittlePonies: this.state.myLittlePonies.slice( 0, 12 ),
-          // cutieMarks: this.state.cutieMarks.slice( 0, 4 )
         });
       } else if ( x === 2 ) {
         this.setState({ myLittlePonies: [ ...MyLittlePoniesJSON.slice( 0, 24 )]});
-         // this.setState({ myLittlePonies: this.state.myLittlePonies.slice( 0, 24 )});
       } 
       this.setState({ 
         difficulty: x, 
@@ -266,14 +263,11 @@ class App extends Component {
       playerScore: 0,
       totalClicks: 0,
       gameStatus: 1,
-      myLittlePonies: [ ...MyLittlePoniesJSON],
-      cutieMarks: [ ...CutieMarksJSON],
+      myLittlePonies: [ ...MyLittlePoniesJSON ],
+      cutieMarks: [ ...CutieMarksJSON ],
       display: "Good luck, " + this.state.playerName + "!",
     }, () => this.setDifficulty( x ));
     this.handleClose1();
-    console.log( this.state.myLittlePonies );
-    console.log( this.state.cutieMarks );
-    console.log( CutieMarksJSON );
   }
 
   render() {
