@@ -1,6 +1,6 @@
 {
   "name": "molly-pony",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A My Little Pony themed math game",
   "main": "server.js",
   "scripts": {

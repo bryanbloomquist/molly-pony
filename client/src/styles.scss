@@ -1,3 +1,5 @@
+/*Sass Variable*/
+
 $greyblur: #e6e6facc;
 $pinkblur: #ffc0c099;
 $violet: #ee82ee;
@@ -7,6 +9,8 @@ $magenta: #ff00ff;
 $gold: #ffd700;
 $white: #ffffff;
 
+/*Universal Style Elements*/
+
 body {
   background-image: url("./images/PonyvilleBackground.png");
   background-repeat: no-repeat;
@@ -14,6 +18,21 @@ body {
   background-attachment: fixed;
   background-position: center top;
 }
+
+.button {
+  background-color: $pink;
+  border: solid 1px $violet;
+  color: $magenta;
+  display: block;
+  margin: 10px auto;
+  &:hover {
+    background-color: $violet;
+    border: solid 1px $pink;
+    color: $white;
+  }
+}
+
+/*Login Screen*/
 
 .login {
   background-color: $greyblur;
@@ -39,6 +58,8 @@ body {
   color: darken( $violet, 20% );
 }
 
+/* Billboard */
+
 .textboard {
   background-color: $pinkblur;
   border: solid 5px $violet;
@@ -47,6 +68,8 @@ body {
   min-height: 100px;
   overflow: auto;
 }
+
+/* Game Area */
 
 .gameArea {
   width: 100%;
@@ -77,12 +100,6 @@ body {
   border: solid 3px $gold;
 }
 
-.gameOver {
-  width: 100%;
-  background: $greyblur;
-  border: solid 5px darken( $violet, 20% );
-}
-
 .centered {
   position: absolute;
   top: 5%;
@@ -98,6 +115,14 @@ body {
   width: 0;
 }
 
+/* Game Over */
+
+.gameOver {
+  width: 100%;
+  background: $greyblur;
+  border: solid 5px darken( $violet, 20% );
+}
+
 .gameOverBtn {
   width: 100%;
   border: solid 3px $violet;
@@ -109,6 +134,8 @@ body {
   }
 }
 
+/* Scoreboard */
+
 .heading {
   float: left;
   width: 75%;
@@ -119,6 +146,8 @@ body {
   width: 25%;
   text-align: right;
 }
+
+/* Pony Area */
 
 .ponyArea {
   width: 100%;
@@ -148,6 +177,8 @@ body {
   opacity: 1;
 }
 
+/* Modals */
+
 .modalHeader, .modalBody, .modalFooter {
   background-color: $pinkblur;
   border: solid 2px $violet;
@@ -167,18 +198,5 @@ body {
   &:hover {
     background-color: $magenta;
     border: solid 1px $violet;
-  }
-}
-
-.button {
-  background-color: $pink;
-  border: solid 1px $violet;
-  color: $magenta;
-  display: block;
-  margin: 10px auto;
-  &:hover {
-    background-color: $violet;
-    border: solid 1px $pink;
-    color: $white;
   }
 }
