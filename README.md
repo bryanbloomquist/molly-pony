@@ -154,7 +154,7 @@ Project Link: [https://github.com/bryanbloomquist/molly-pony](https://github.com
 [issues-shield]: https://img.shields.io/github/issues/bryanbloomquist/molly-pony.svg?style=flat-square
 [issues-url]: https://github.com/bryanbloomquist/molly-pony/issues
 [license-shield]: https://img.shields.io/github/license/bryanbloomquist/molly-pony.svg?style=flat-square
-[license-url]: https://github.com/bryanbloomquist/molly-pony/LICENSE.txt
+[license-url]: https://github.com/bryanbloomquist/molly-pony/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/bryan-bloomquist-b1374416b/
 [product-screenshot]: images/screenshot.png
