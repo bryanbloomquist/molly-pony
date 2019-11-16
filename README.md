@@ -24,7 +24,7 @@
     <h1 align="center">My Little Pony Math Rescue</h1>
   </a>
   <p align="center">
-    A full MERN stack application themed around My Little Ponies to practice math and logical thinking, made with love for my dauther
+    A full MERN stack application themed around My Little Ponies to practice math and logical thinking, made with love for my daughter
     <br />
     <a href="https://github.com/bryanbloomquist/molly-pony"><strong>Explore the docs »</strong></a>
     <br />
