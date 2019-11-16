@@ -59,6 +59,8 @@
 
 The My Little Pony Math game is a React app that is an updated version of the [Crystal-Collector](https://github.com/bryanbloomquist/crystal-collector) jQuery app I wrote for boot camp in 2018.  This updated version is a full stack application with 3 difficulty setting, the object is to match the target score by clicking on the My Little Pony cutie marks and adding together their values.
 
+![My Little Pony App Screenshot](https://bryanbloomquist.github.io/assets/images/molly-pony.png)
+
 ### Built With
 
 * [MongoDB](https://mongodb.com)
